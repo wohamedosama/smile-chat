@@ -94,6 +94,10 @@ class Assets {
   /// assets/images/Search.svg
   static const String assetsImagesSearch = "assets/images/Search.svg";
 
+  /// Assets for assetsImagesSplash
+  /// assets/images/splash.png
+  static const String assetsImagesSplash = "assets/images/splash.png";
+
   /// Assets for assetsImagesSplashScreen
   /// assets/images/splash_screen.svg
   static const String assetsImagesSplashScreen = "assets/images/splash_screen.svg";
