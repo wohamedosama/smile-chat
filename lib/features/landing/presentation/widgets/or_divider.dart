@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
 
-class OrDivider extends StatelessWidget {
-  const OrDivider({super.key});
+class CustomDivider extends StatelessWidget {
+  const CustomDivider({super.key});
 
   @override
   Widget build(BuildContext context) {
