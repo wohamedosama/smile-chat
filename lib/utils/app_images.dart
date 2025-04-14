@@ -51,8 +51,12 @@ class Assets {
   static const String assetsImagesLocation = "assets/images/location.svg";
 
   /// Assets for assetsImagesLogo
-  /// assets/images/logo.svg
-  static const String assetsImagesLogo = "assets/images/logo.svg";
+  /// assets/images/logo.png
+  static const String assetsImagesLogo = "assets/images/logo.png";
+
+  /// Assets for assetsImagesLogoSVG
+  /// assets/images/logoSVG.svg
+  static const String assetsImagesLogoSVG = "assets/images/logoSVG.svg";
 
   /// Assets for assetsImagesLogout
   /// assets/images/logout.svg

@@ -133,7 +133,7 @@ abstract class AppStyles {
   static TextStyle styleSemiBold16 = TextStyle(
     fontSize: 16,
     fontFamily: 'Poppins',
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
     color: AppColor.whiteColor,
   );
   static TextStyle styleSemiBold12 = TextStyle(
