@@ -4,8 +4,8 @@ import 'package:smile_chat/features/landing/presentation/widgets/login_using_wid
 import 'package:smile_chat/features/landing/presentation/widgets/sub_title_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/welcome_back_text_widget.dart';
 
-class LandingSscreen extends StatelessWidget {
-  const LandingSscreen({super.key});
+class LandingScreen extends StatelessWidget {
+  const LandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:smile_chat/app_router.dart';
 import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class SmileChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LandingSscreen(),
+      onGenerateRoute: (settings) => AppRouter().generateRoute(settings),
+      home: LandingScreen(),
     );
   }
 }
