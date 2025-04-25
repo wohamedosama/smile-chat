@@ -4,6 +4,7 @@ import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
 import 'package:smile_chat/utils/app_images.dart';
+import 'package:smile_chat/utils/constant.dart';
 
 class LoginUsingMobileNumber extends StatelessWidget {
   const LoginUsingMobileNumber({super.key});
@@ -19,7 +20,6 @@ class LoginUsingMobileNumber extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 15),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -99,7 +99,9 @@ class LoginUsingMobileNumber extends StatelessWidget {
                 ),
                 SizedBox(height: 40),
                 CustomElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, getOTPScreen);
+                  },
                   text: 'Get OTP',
                 ),
                 SizedBox(height: 30),
