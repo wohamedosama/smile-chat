@@ -1,14 +1,21 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
+  /// Assets for assetsImages3236267RemovebgPreview 1
+  /// assets/images/3236267-removebg-preview 1.svg
+  static const String assetsImages3236267RemovebgPreview1 =
+      "assets/images/3236267-removebg-preview1.svg";
+
   /// Assets for assetsImagesAccountIcons
   /// assets/images/account_icons.svg
-  static const String assetsImagesAccountIcons = "assets/images/account_icons.svg";
+  static const String assetsImagesAccountIcons =
+      "assets/images/account_icons.svg";
 
   /// Assets for assetsImagesArrowBackIcon
   /// assets/images/arrow_back_icon.svg
-  static const String assetsImagesArrowBackIcon = "assets/images/arrow_back_icon.svg";
+  static const String assetsImagesArrowBackIcon =
+      "assets/images/arrow_back_icon.svg";
 
   /// Assets for assetsImagesBlock
   /// assets/images/block.svg
@@ -20,7 +27,8 @@ class Assets {
 
   /// Assets for assetsImagesCallIconIntheNavBar
   /// assets/images/call_icon_inthe_nav_bar.svg
-  static const String assetsImagesCallIconIntheNavBar = "assets/images/call_icon_inthe_nav_bar.svg";
+  static const String assetsImagesCallIconIntheNavBar =
+      "assets/images/call_icon_inthe_nav_bar.svg";
 
   /// Assets for assetsImagesCamera
   /// assets/images/Camera.svg
@@ -28,7 +36,8 @@ class Assets {
 
   /// Assets for assetsImagesContactIconIntheNavBar
   /// assets/images/contact_icon_inthe_nav_bar.svg
-  static const String assetsImagesContactIconIntheNavBar = "assets/images/contact_icon_inthe_nav_bar.svg";
+  static const String assetsImagesContactIconIntheNavBar =
+      "assets/images/contact_icon_inthe_nav_bar.svg";
 
   /// Assets for assetsImagesData
   /// assets/images/Data.svg
@@ -40,7 +49,8 @@ class Assets {
 
   /// Assets for assetsImagesEnterOtpCodeImage
   /// assets/images/enter_otp_code_image.svg
-  static const String assetsImagesEnterOtpCodeImage = "assets/images/enter_otp_code_image.svg";
+  static const String assetsImagesEnterOtpCodeImage =
+      "assets/images/enter_otp_code_image.svg";
 
   /// Assets for assetsImagesHelp
   /// assets/images/Help.svg
@@ -48,7 +58,8 @@ class Assets {
 
   /// Assets for assetsImagesHomeIconIntheNavBar
   /// assets/images/home_icon_inthe_nav_bar.svg
-  static const String assetsImagesHomeIconIntheNavBar = "assets/images/home_icon_inthe_nav_bar.svg";
+  static const String assetsImagesHomeIconIntheNavBar =
+      "assets/images/home_icon_inthe_nav_bar.svg";
 
   /// Assets for assetsImagesLocation
   /// assets/images/location.svg
@@ -84,11 +95,13 @@ class Assets {
 
   /// Assets for assetsImagesNotification
   /// assets/images/notification.svg
-  static const String assetsImagesNotification = "assets/images/notification.svg";
+  static const String assetsImagesNotification =
+      "assets/images/notification.svg";
 
   /// Assets for assetsImagesPhoneAuthImage
-  /// assets/images/phone_auth_image.svg
-  static const String assetsImagesPhoneAuthImage = "assets/images/phone_auth_image.svg";
+  /// assets/images/phone_auth_image.png
+  static const String assetsImagesPhoneAuthImage =
+      "assets/images/phone_auth_image.png";
 
   /// Assets for assetsImagesPoll
   /// assets/images/poll.svg
@@ -108,7 +121,8 @@ class Assets {
 
   /// Assets for assetsImagesSplashScreen
   /// assets/images/splash_screen.svg
-  static const String assetsImagesSplashScreen = "assets/images/splash_screen.svg";
+  static const String assetsImagesSplashScreen =
+      "assets/images/splash_screen.svg";
 
   /// Assets for assetsImagesTrash
   /// assets/images/Trash.svg
@@ -126,4 +140,3 @@ class Assets {
   /// assets/images/Video.svg
   static const String assetsImagesVideo = "assets/images/Video.svg";
 }
-
