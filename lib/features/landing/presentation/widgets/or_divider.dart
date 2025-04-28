@@ -17,8 +17,8 @@ class CustomDivider extends StatelessWidget {
           ),
         ),
         Text('OR',
-            style:
-                AppStyles.styleRegular14.copyWith(color: AppColor.primayColor)),
+            style: AppStyles.styleRegular14
+                .copyWith(color: AppColor.primaryColor)),
         Expanded(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 8),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_SVG_image.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_png_image.dart';
 import 'package:smile_chat/utils/app_images.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -22,12 +23,13 @@ class CustomAppBar extends StatelessWidget {
                 height: 50)),
         Spacer(),
         SizedBox(
-            height: 60,
-            width: 60,
-            child: CustomSVGImage(
-              imagePath: Assets.assetsImagesLogo,
-              fit: BoxFit.cover,
-            ))
+          height: 60,
+          width: 60,
+          child: CustomPNGImage(
+            imagePath: Assets.assetsImagesLogo,
+            fit: BoxFit.cover,
+          ),
+        )
       ],
     );
   }

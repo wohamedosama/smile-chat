@@ -12,7 +12,7 @@ class GETOTPScereen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primayColor,
+      backgroundColor: AppColor.primaryColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(22),
