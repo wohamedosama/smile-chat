@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_app_bar.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
@@ -19,16 +20,7 @@ class GETOTPScereen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: SvgPicture.asset(
-                  height: 50,
-                  Assets.assetsImagesArrowBackIcon,
-                  fit: BoxFit.cover,
-                ),
-              ),
+              CustomAppBar(isThatContainImage: false),
               SizedBox(height: 40),
               Row(
                 children: [

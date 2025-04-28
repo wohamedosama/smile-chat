@@ -6,8 +6,10 @@ import 'package:smile_chat/utils/app_images.dart';
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
+    required this.isThatContainImage,
   });
 
+  final bool isThatContainImage;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,14 +24,16 @@ class CustomAppBar extends StatelessWidget {
                 fit: BoxFit.cover,
                 height: 50)),
         Spacer(),
-        SizedBox(
-          height: 60,
-          width: 60,
-          child: CustomPNGImage(
-            imagePath: Assets.assetsImagesLogo,
-            fit: BoxFit.cover,
-          ),
-        )
+        isThatContainImage
+            ? SizedBox(
+                height: 60,
+                width: 60,
+                child: CustomPNGImage(
+                  imagePath: Assets.assetsImagesLogo,
+                  fit: BoxFit.cover,
+                ),
+              )
+            : SizedBox(),
       ],
     );
   }

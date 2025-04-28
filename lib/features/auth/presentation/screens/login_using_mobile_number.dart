@@ -5,7 +5,6 @@ import 'package:smile_chat/features/auth/presentation/widgets/custom_png_image.d
 import 'package:smile_chat/features/auth/presentation/widgets/custom_text_widget.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/enter_mobile_number_text_field.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/terms_and_conditions_list.dart';
-
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
@@ -32,7 +31,9 @@ class LoginUsingMobileNumber extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      CustomAppBar(),
+                      CustomAppBar(
+                        isThatContainImage: true,
+                      ),
                       SizedBox(height: 30),
                       CustomTextWidget(
                         textModel: TextModel(
