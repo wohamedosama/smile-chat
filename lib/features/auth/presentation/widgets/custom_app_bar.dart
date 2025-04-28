@@ -19,13 +19,13 @@ class CustomAppBar extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child: CustomSVGImage(
+            child: const CustomSVGImage(
                 imagePath: Assets.assetsImagesArrowBackIcon,
                 fit: BoxFit.cover,
                 height: 50)),
-        Spacer(),
+        const Spacer(),
         isThatContainImage
-            ? SizedBox(
+            ? const SizedBox(
                 height: 60,
                 width: 60,
                 child: CustomPNGImage(
@@ -33,7 +33,7 @@ class CustomAppBar extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

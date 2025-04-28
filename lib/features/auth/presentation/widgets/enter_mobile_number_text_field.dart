@@ -18,21 +18,22 @@ class EnterMobileNumberTextField extends StatelessWidget {
             const SizedBox(width: 12),
             Text('+91',
                 style: AppStyles.styleRegular16
-                    .copyWith(color: Color(0xffcccccc))),
+                    .copyWith(color: const Color(0xffcccccc))),
             const Icon(Icons.arrow_drop_down, color: Color(0xffcccccc)),
             const SizedBox(width: 8),
-            Container(width: 1, height: 24, color: Color(0xffcccccc)),
+            Container(width: 1, height: 24, color: const Color(0xffcccccc)),
             const SizedBox(width: 8),
           ],
         ),
         hintText: "Enter Mobile Number",
-        hintStyle: AppStyles.styleRegular16.copyWith(color: Color(0xffcccccc)),
+        hintStyle:
+            AppStyles.styleRegular16.copyWith(color: const Color(0xffcccccc)),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xffcccccc)),
+          borderSide: const BorderSide(color: Color(0xffcccccc)),
           borderRadius: BorderRadius.circular(16),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xffcccccc)),
+          borderSide: const BorderSide(color: Color(0xffcccccc)),
           borderRadius: BorderRadius.circular(16),
         ),
       ),

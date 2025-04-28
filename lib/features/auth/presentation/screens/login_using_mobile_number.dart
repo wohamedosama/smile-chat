@@ -21,7 +21,7 @@ class LoginUsingMobileNumber extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(left: 22, right: 22),
+          padding: const EdgeInsets.only(left: 22, right: 22),
           child: Column(
             children: [
               Expanded(
@@ -31,17 +31,17 @@ class LoginUsingMobileNumber extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      CustomAppBar(
+                      const CustomAppBar(
                         isThatContainImage: true,
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       CustomTextWidget(
                         textModel: TextModel(
                           text: 'Hello!',
                           style: AppStyles.styleSemiBoldwhiteColor45,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       CustomTextWidget(
                         textModel: TextModel(
                           text:
@@ -50,21 +50,21 @@ class LoginUsingMobileNumber extends StatelessWidget {
                               .copyWith(color: AppColor.whiteColor),
                         ),
                       ),
-                      SizedBox(height: 25),
-                      CustomPNGImage(
+                      const SizedBox(height: 25),
+                      const CustomPNGImage(
                           imagePath: Assets.assetsImagesPhoneAuthImage),
-                      SizedBox(height: 20),
-                      EnterMobileNumberTextField(),
-                      SizedBox(height: 35),
+                      const SizedBox(height: 20),
+                      const EnterMobileNumberTextField(),
+                      const SizedBox(height: 35),
                       CustomElevatedButton(
                         onPressed: () {
                           Navigator.pushNamed(context, getOTPScreen);
                         },
                         text: 'Get OTP',
                       ),
-                      SizedBox(height: 40),
-                      TermsAndConditionsWidget(),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 40),
+                      const TermsAndConditionsWidget(),
+                      const SizedBox(height: 30),
                     ],
                   ),
                 ),

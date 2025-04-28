@@ -18,8 +18,8 @@ class WelcomeBackWidgetText extends StatelessWidget {
               ),
               TextSpan(
                 text: '!',
-                style: AppStyles.styleSemiBoldBlackColor45
-                    .copyWith(letterSpacing: 15, color: Color(0xff130856)),
+                style: AppStyles.styleSemiBoldBlackColor45.copyWith(
+                    letterSpacing: 15, color: const Color(0xff130856)),
               ),
             ],
           ),

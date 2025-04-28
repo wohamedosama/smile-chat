@@ -18,9 +18,9 @@ class LoginButtons extends StatelessWidget {
               Navigator.pushNamed(context, loginUsingMobileNumber);
             },
             text: 'Mobile number'),
-        CustomDivider(),
+        const CustomDivider(),
         CustomElevatedButton(onPressed: () {}, text: 'Email id'),
-        SizedBox(height: 47),
+        const SizedBox(height: 47),
       ],
     );
   }

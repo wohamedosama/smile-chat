@@ -19,7 +19,7 @@ class SmileChat extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: (settings) => AppRouter().generateRoute(settings),
-      home: LandingScreen(),
+      home: const LandingScreen(),
     );
   }
 }
