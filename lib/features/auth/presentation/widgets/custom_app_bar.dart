@@ -7,9 +7,11 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.isThatContainImage,
+    this.isTheColorBlack = false,
   });
 
   final bool isThatContainImage;
+  final bool isTheColorBlack;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,8 +21,10 @@ class CustomAppBar extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child: const CustomSVGImage(
-                imagePath: Assets.assetsImagesArrowBackIcon,
+            child: CustomSVGImage(
+                imagePath: isTheColorBlack
+                    ? Assets.assetsImagesBalckArrowBackIcon
+                    : Assets.assetsImagesArrowBackIcon,
                 fit: BoxFit.cover,
                 height: 50)),
         const Spacer(),

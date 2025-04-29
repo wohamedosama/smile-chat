@@ -101,6 +101,12 @@ abstract class AppStyles {
     fontWeight: FontWeight.w800,
     color: AppColor.midGrayColor,
   );
+  static TextStyle styleExtraBold45 = const TextStyle(
+    fontSize: 45,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w900,
+    color: Color(0xff292929),
+  );
 
   //! Logout Button
 

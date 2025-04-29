@@ -14,12 +14,13 @@ class LoginButtons extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         CustomElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, loginUsingMobileNumber);
-            },
+            onPressed: () =>
+                Navigator.pushNamed(context, loginUsingMobileNumber),
             text: 'Mobile number'),
         const CustomDivider(),
-        CustomElevatedButton(onPressed: () {}, text: 'Email id'),
+        CustomElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, loginUsingEmail),
+            text: 'Email id'),
         const SizedBox(height: 47),
       ],
     );

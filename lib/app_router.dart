@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/screens/get_otp_screen.dart';
+import 'package:smile_chat/features/auth/presentation/screens/login_using_mail_id_screen.dart';
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mobile_number.dart';
 import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen.dart';
 import 'package:smile_chat/utils/constant.dart';
@@ -15,6 +16,10 @@ class AppRouter {
 
       case getOTPScreen:
         return MaterialPageRoute(builder: (_) => const GETOTPScereen());
+
+      case loginUsingEmail:
+        return MaterialPageRoute(
+            builder: (_) => const LoginUsingMailIdScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(
