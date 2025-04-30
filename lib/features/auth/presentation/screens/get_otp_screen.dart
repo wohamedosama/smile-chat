@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:smile_chat/features/auth/data/text_model.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_app_bar.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/otp_input_instructions.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/pin_code_widget.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/you_didnot_receive_code_text_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/app_color.dart';
-import 'package:smile_chat/utils/app_font_size.dart';
 
 class GETOTPScereen extends StatelessWidget {
   const GETOTPScereen({super.key});

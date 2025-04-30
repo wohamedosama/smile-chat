@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_divider.dart';
-import 'package:smile_chat/utils/app_font_size.dart';
+import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/constant.dart';
 
 class LoginButtons extends StatelessWidget {
