@@ -24,30 +24,11 @@ class LoginContainer extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                onPressed: () {},
-                icon:
-                    const CustomSVGImage(imagePath: Assets.assetsImagesGoogle),
-              ),
+              CustomIconButton(onPressed: () {}),
               const SizedBox(height: 40),
               CustomDivider(style: AppStyles.styleExtraBold16),
               const SizedBox(height: 40),
-              TextFormField(
-                style: AppStyles.styleRegularWithWhiteColor16,
-                cursorColor: AppColor.whiteColor,
-                decoration: InputDecoration(
-                  labelText: 'Your email',
-                  labelStyle: AppStyles.styleRegularWithWhiteColor16,
-                  enabledBorder: const UnderlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColor.speicalGray, strokeAlign: 2),
-                  ),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide:
-                        BorderSide(color: AppColor.whiteColor, strokeAlign: 2),
-                  ),
-                ),
-              ),
+              const CustomTextFromField(),
               const SizedBox(height: 40),
               TextFormField(
                 style: AppStyles.styleRegularWithWhiteColor16,
@@ -109,5 +90,46 @@ class LoginContainer extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CustomTextFromField extends StatelessWidget {
+  const CustomTextFromField({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      style: AppStyles.styleRegularWithWhiteColor16,
+      cursorColor: AppColor.whiteColor,
+      decoration: InputDecoration(
+        labelText: 'Your email',
+        labelStyle: AppStyles.styleRegularWithWhiteColor16,
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColor.speicalGray, strokeAlign: 2),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColor.whiteColor, strokeAlign: 2),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomIconButton extends StatelessWidget {
+  const CustomIconButton({
+    super.key,
+    required this.onPressed,
+    this.icon,
+  });
+  final void Function()? onPressed;
+  final Widget? icon;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: onPressed,
+        icon:
+            icon ?? const CustomSVGImage(imagePath: Assets.assetsImagesGoogle));
   }
 }
