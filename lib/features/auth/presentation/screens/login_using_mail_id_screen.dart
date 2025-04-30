@@ -4,6 +4,7 @@ import 'package:smile_chat/features/auth/data/text_model.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_app_bar.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_svg_image.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_text_widget.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/login_using_email_id_app_bar.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/welcome_text_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_divider.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
@@ -22,19 +23,7 @@ class LoginUsingMailIdScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 10.0, right: 10, top: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 40),
-                CustomAppBar(isThatContainImage: true, isTheColorBlack: true),
-                WelcomeTextWidget(),
-                // const Spacer(),
-                SizedBox(height: 80),
-              ],
-            ),
-          ),
+          const LoginUsingMailIdAppBar(),
           Expanded(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
