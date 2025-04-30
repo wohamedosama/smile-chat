@@ -14,6 +14,7 @@ class WelcomeTextWidget extends StatelessWidget {
     ];
     return Column(
       children: [
+        const SizedBox(height: 5),
         RichText(
             text: TextSpan(
                 children: model

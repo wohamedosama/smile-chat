@@ -8,6 +8,12 @@ abstract class AppStyles {
     fontWeight: FontWeight.w400,
     color: AppColor.blackColor,
   );
+  static TextStyle styleRegularWithWhiteColor16 = const TextStyle(
+    fontSize: 16,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w400,
+    color: AppColor.whiteColor,
+  );
 
   static TextStyle styleBold16 = const TextStyle(
     fontSize: 16,
@@ -69,7 +75,7 @@ abstract class AppStyles {
     fontSize: 14,
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w400,
-    color: Color(0XFFC0CECC),
+    color: AppColor.speicalGray,
   );
   static TextStyle styleSemiBold14 = const TextStyle(
     fontSize: 14,
@@ -100,6 +106,12 @@ abstract class AppStyles {
     fontFamily: 'Poppins',
     fontWeight: FontWeight.w800,
     color: AppColor.midGrayColor,
+  );
+  static TextStyle styleExtraBold16 = const TextStyle(
+    fontSize: 16,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w800,
+    color: AppColor.whiteColor,
   );
   static TextStyle styleExtraBold45 = const TextStyle(
     fontSize: 45,
