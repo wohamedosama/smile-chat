@@ -9,6 +9,7 @@ class LoginUsingMailIdScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: AppColor.whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
