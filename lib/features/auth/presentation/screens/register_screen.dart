@@ -3,8 +3,8 @@ import 'package:smile_chat/features/auth/presentation/widgets/login_container.da
 import 'package:smile_chat/features/auth/presentation/widgets/login_using_email_id_app_bar.dart';
 import 'package:smile_chat/utils/app_color.dart';
 
-class LoginUsingMailIdScreen extends StatelessWidget {
-  const LoginUsingMailIdScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class LoginUsingMailIdScreen extends StatelessWidget {
       backgroundColor: AppColor.whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [CustomizeAutAppBar(isLoginPage: true), LoginContainer()],
+        children: [CustomizeAutAppBar(isLoginPage: false), LoginContainer()],
       ),
     );
   }
