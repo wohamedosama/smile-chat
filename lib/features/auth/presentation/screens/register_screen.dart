@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/login_container.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/login_using_email_id_app_bar.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/register_container.dart';
 import 'package:smile_chat/utils/app_color.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -13,7 +13,7 @@ class RegisterScreen extends StatelessWidget {
       backgroundColor: AppColor.whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [CustomizeAutAppBar(isLoginPage: false), LoginContainer()],
+        children: [CustomizeAutAppBar(isLoginPage: false), RegisterContainer()],
       ),
     );
   }

@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/cusotm_text_form_field.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/custom_icon_button.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/forget_password_text_button.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_column_contain_of_custom_text_form_filed_in_the_register_screen.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/login_button_and_create_user_text_button.dart';
-import 'package:smile_chat/features/landing/presentation/widgets/custom_divider.dart';
 import 'package:smile_chat/utils/app_color.dart';
-import 'package:smile_chat/utils/app_font_size.dart';
 import 'package:smile_chat/utils/constant.dart';
 
-class LoginContainer extends StatelessWidget {
-  const LoginContainer({
-    super.key,
-  });
+class RegisterContainer extends StatelessWidget {
+  const RegisterContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +20,13 @@ class LoginContainer extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                //! login using google button
-                CustomIconButton(onPressed: () {}),
-                const SizedBox(height: 40),
-                CustomDivider(style: AppStyles.styleExtraBold16),
-                const SizedBox(height: 40),
-                const CustomTextFromField(labelText: 'Your email'),
-                const SizedBox(height: 40),
-                const CustomTextFromField(labelText: 'Password'),
                 const SizedBox(height: 14),
-                const ForgetPasswordTextButton(),
+                const CustomColumnContainOfCustomTextFormFieldInTheRegisterScreen(),
                 const SizedBox(height: 50),
                 LoginButtonAndCreateUserTextButton(
-                  text: 'Log In',
-                  customTextButtonText: 'Register',
-                  customTextwidgetText: 'Create user ?',
+                  customTextButtonText: 'Sign in',
+                  customTextwidgetText: 'Already a user ?',
+                  text: 'Create an account',
                   onPressedRegisterButton: () {
                     Navigator.pushNamed(context, registerScreen);
                   },
