@@ -6,14 +6,16 @@ import 'package:smile_chat/utils/app_font_size.dart';
 
 class CustomHomeScreenAppBar extends StatelessWidget {
   const CustomHomeScreenAppBar({
+    this.onPressed,
     super.key,
   });
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const LandingIconInTheHomePageAppBar(),
+        LandingIconInTheHomePageAppBar(onPressed: onPressed),
         const Spacer(),
         Text(
           'Home',
