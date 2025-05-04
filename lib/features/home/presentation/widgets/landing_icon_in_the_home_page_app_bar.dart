@@ -15,12 +15,11 @@ class LandingIconInTheHomePageAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 24,
+      radius: 21,
       backgroundColor: AppColor.whiteColor.withAlpha(25),
       child: CustomIconButton(
-        onPressed: onPressed,
-        icon: icon ?? SvgPicture.asset(Assets.assetsImagesSearch),
-      ),
+          onPressed: onPressed,
+          icon: icon ?? SvgPicture.asset(Assets.assetsImagesSearch, width: 25)),
     );
   }
 }

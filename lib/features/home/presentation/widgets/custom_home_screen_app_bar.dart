@@ -19,7 +19,7 @@ class CustomHomeScreenAppBar extends StatelessWidget {
           'Home',
           style: AppStyles.styleMedium20.copyWith(color: AppColor.whiteColor),
         ),
-        const Spacer(flex: 10),
+        const Spacer(flex: 18),
         const CustomProfileImage(),
         const Spacer()
       ],

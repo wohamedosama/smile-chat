@@ -4,11 +4,12 @@ import 'package:smile_chat/utils/app_images.dart';
 
 class CustomProfileImage extends StatelessWidget {
   const CustomProfileImage({
+    super.key,
     this.onTap,
     this.child,
-    super.key,
   });
   final void Function()? onTap;
+
   final Widget? child;
   @override
   Widget build(BuildContext context) {
