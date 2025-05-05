@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+import 'package:smile_chat/features/home/model/chat_model.dart';
+import 'package:smile_chat/features/home/presentation/widgets/customize_chat_image.dart';
+import 'package:smile_chat/features/home/presentation/widgets/unraed_messages_and_the_time_of_chat.dart';
+import 'package:smile_chat/utils/app_font_size.dart';
+
+class ChatItem extends StatelessWidget {
+  const ChatItem({super.key, required this.model});
+  final ChatModel model;
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: CustomizeChatImage(model: model),
+      title: Text(
+        model.name,
+        style: AppStyles.styleMedium20,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      subtitle: Text(
+        model.lastMessage,
+        style: AppStyles.styleBold12,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      trailing: UnreadMessagesAndTimeOfTheChat(model: model),
+    );
+  }
+}
