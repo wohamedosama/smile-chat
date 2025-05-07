@@ -26,6 +26,10 @@ class Assets {
   /// assets/images/Call.svg
   static const String assetsImagesCall = "assets/images/Call.svg";
 
+  /// Assets for assetsImagesCallIcon
+  /// assets/images/call_icon.svg
+  static const String assetsImagesCallIcon = "assets/images/call_icon.svg";
+
   /// Assets for assetsImagesCallIconIntheNavBar
   /// assets/images/call_icon_inthe_nav_bar.svg
   static const String assetsImagesCallIconIntheNavBar = "assets/images/call_icon_inthe_nav_bar.svg";
@@ -33,6 +37,14 @@ class Assets {
   /// Assets for assetsImagesCamera
   /// assets/images/Camera.svg
   static const String assetsImagesCamera = "assets/images/Camera.svg";
+
+  /// Assets for assetsImagesChatIcon
+  /// assets/images/chat_icon.svg
+  static const String assetsImagesChatIcon = "assets/images/chat_icon.svg";
+
+  /// Assets for assetsImagesContactIcon
+  /// assets/images/contact_icon.svg
+  static const String assetsImagesContactIcon = "assets/images/contact_icon.svg";
 
   /// Assets for assetsImagesContactIconIntheNavBar
   /// assets/images/contact_icon_inthe_nav_bar.svg

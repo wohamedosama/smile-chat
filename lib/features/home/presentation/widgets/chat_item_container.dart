@@ -12,8 +12,10 @@ class ChatItemContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24), topRight: Radius.circular(24)),
         child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10),
           color: AppColor.whiteColor,
           child: Column(
             mainAxisSize: MainAxisSize.min,
