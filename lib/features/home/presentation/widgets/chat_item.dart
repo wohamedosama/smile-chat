@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smile_chat/features/home/model/chat_model.dart';
+import 'package:smile_chat/features/home/presentation/widgets/build_circle_action.dart';
 import 'package:smile_chat/features/home/presentation/widgets/customize_chat_image.dart';
 import 'package:smile_chat/features/home/presentation/widgets/unraed_messages_and_the_time_of_chat.dart';
 import 'package:smile_chat/utils/app_color.dart';
@@ -44,37 +45,6 @@ class ChatItem extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         trailing: UnreadMessagesAndTimeOfTheChat(model: model),
-      ),
-    );
-  }
-}
-
-class BuildCircleAction extends StatelessWidget {
-  const BuildCircleAction({
-    super.key,
-    required this.onTap,
-    required this.color,
-    required this.iconAsset,
-  });
-  final VoidCallback onTap;
-  final Color color;
-  final String iconAsset;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
-        child: CircleAvatar(
-          radius: 20,
-          backgroundColor: color,
-          child: SvgPicture.asset(
-            fit: BoxFit.cover,
-            iconAsset,
-            width: 36,
-            height: 36,
-          ),
-        ),
       ),
     );
   }
