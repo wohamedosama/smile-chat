@@ -154,9 +154,17 @@ class Assets {
   /// assets/images/qr_code.svg
   static const String assetsImagesQrCode = "assets/images/qr_code.svg";
 
+  /// Assets for assetsImagesRemoveIcon
+  /// assets/images/remove_icon.png
+  static const String assetsImagesRemoveIcon = "assets/images/remove_icon.png";
+
   /// Assets for assetsImagesSearch
   /// assets/images/Search.svg
   static const String assetsImagesSearch = "assets/images/Search.svg";
+
+  /// Assets for assetsImagesSearchIcon
+  /// assets/images/search_icon.png
+  static const String assetsImagesSearchIcon = "assets/images/search_icon.png";
 
   /// Assets for assetsImagesSplash
   /// assets/images/splash.png
