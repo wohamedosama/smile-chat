@@ -29,7 +29,9 @@ class AppRouter {
       case homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case searchScreen:
-        return MaterialPageRoute(builder: (_) => const SearchScreen());
+        return MaterialPageRoute(
+          builder: (_) => const SearchScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(
