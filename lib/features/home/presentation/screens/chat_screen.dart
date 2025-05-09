@@ -21,6 +21,9 @@ class ChatScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 40),
                 CustomHomeScreenAppBar(
+                    onTapProfileImage: () =>
+                        Navigator.of(context, rootNavigator: true)
+                            .pushNamed(profileScreen),
                     onPressed: () => Navigator.of(context, rootNavigator: true)
                         .pushNamed(searchScreen)),
                 const SizedBox(height: 24),

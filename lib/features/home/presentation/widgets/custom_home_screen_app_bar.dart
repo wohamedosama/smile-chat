@@ -7,9 +7,11 @@ import 'package:smile_chat/utils/app_font_size.dart';
 class CustomHomeScreenAppBar extends StatelessWidget {
   const CustomHomeScreenAppBar({
     this.onPressed,
+    this.onTapProfileImage,
     super.key,
   });
   final void Function()? onPressed;
+  final void Function()? onTapProfileImage;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class CustomHomeScreenAppBar extends StatelessWidget {
           style: AppStyles.styleMedium20.copyWith(color: AppColor.whiteColor),
         ),
         const Spacer(flex: 18),
-        const CustomProfileImage(),
+        CustomProfileImage(onTap: onTapProfileImage),
         const Spacer()
       ],
     );
