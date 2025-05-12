@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 class AppColor {
   AppColor._(); // Private constructor to prevent instantiation
   static const Color whiteColor = Color(0xFFFFFFFF);
+  static const Color iconBackGroundColor = Color(0xffF2F8F7);
   static const Color blackColor = Color(0xFF000000);
   static const Color darkGrayColor = Color(0XFF898A8D);
   static const Color darkerBlackColor = Color(0XFF000E08);

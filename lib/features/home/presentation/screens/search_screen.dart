@@ -17,6 +17,7 @@ class SearchScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              //? Try to use the Anchor Search or Search bar and understand the difference between both of them
               SearchTextFromField(),
               SizedBox(height: 25),
               SearchListView(),

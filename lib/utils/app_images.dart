@@ -74,6 +74,10 @@ class Assets {
   /// assets/images/home_icon_inthe_nav_bar.svg
   static const String assetsImagesHomeIconIntheNavBar = "assets/images/home_icon_inthe_nav_bar.svg";
 
+  /// Assets for assetsImagesKeysIcon
+  /// assets/images/keys_icon.svg
+  static const String assetsImagesKeysIcon = "assets/images/keys_icon.svg";
+
   /// Assets for assetsImagesLocation
   /// assets/images/location.svg
   static const String assetsImagesLocation = "assets/images/location.svg";
@@ -98,6 +102,10 @@ class Assets {
   /// assets/images/Message.svg
   static const String assetsImagesMessage = "assets/images/Message.svg";
 
+  /// Assets for assetsImagesMessageIcno
+  /// assets/images/Message_icno.svg
+  static const String assetsImagesMessageIcno = "assets/images/Message_icno.svg";
+
   /// Assets for assetsImagesNewContact
   /// assets/images/new_contact.svg
   static const String assetsImagesNewContact = "assets/images/new_contact.svg";
@@ -109,6 +117,10 @@ class Assets {
   /// Assets for assetsImagesNotification
   /// assets/images/notification.svg
   static const String assetsImagesNotification = "assets/images/notification.svg";
+
+  /// Assets for assetsImagesNotificationIcon
+  /// assets/images/Notification_icon.svg
+  static const String assetsImagesNotificationIcon = "assets/images/Notification_icon.svg";
 
   /// Assets for assetsImagesPerson
   /// assets/images/person.png
