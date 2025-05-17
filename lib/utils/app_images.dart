@@ -14,6 +14,10 @@ class Assets {
   /// assets/images/arrow_back_icon.svg
   static const String assetsImagesArrowBackIcon = "assets/images/arrow_back_icon.svg";
 
+  /// Assets for assetsImagesAudioCall
+  /// assets/images/audioCall.svg
+  static const String assetsImagesAudioCall = "assets/images/audioCall.svg";
+
   /// Assets for assetsImagesBalckArrowBackIcon
   /// assets/images/balck_arrow_back_icon.svg
   static const String assetsImagesBalckArrowBackIcon = "assets/images/balck_arrow_back_icon.svg";
@@ -74,6 +78,10 @@ class Assets {
   /// assets/images/home_icon_inthe_nav_bar.svg
   static const String assetsImagesHomeIconIntheNavBar = "assets/images/home_icon_inthe_nav_bar.svg";
 
+  /// Assets for assetsImagesIncommingCallsIcon
+  /// assets/images/incommingCallsIcon.svg
+  static const String assetsImagesIncommingCallsIcon = "assets/images/incommingCallsIcon.svg";
+
   /// Assets for assetsImagesKeysIcon
   /// assets/images/keys_icon.svg
   static const String assetsImagesKeysIcon = "assets/images/keys_icon.svg";
@@ -106,6 +114,10 @@ class Assets {
   /// assets/images/Message_icno.svg
   static const String assetsImagesMessageIcno = "assets/images/Message_icno.svg";
 
+  /// Assets for assetsImagesMissidCallIcon
+  /// assets/images/missidCallIcon.svg
+  static const String assetsImagesMissidCallIcon = "assets/images/missidCallIcon.svg";
+
   /// Assets for assetsImagesNewContact
   /// assets/images/new_contact.svg
   static const String assetsImagesNewContact = "assets/images/new_contact.svg";
@@ -122,6 +134,10 @@ class Assets {
   /// assets/images/Notification_icon.svg
   static const String assetsImagesNotificationIcon = "assets/images/Notification_icon.svg";
 
+  /// Assets for assetsImagesOutcommingCallIcon
+  /// assets/images/outcommingCallIcon.svg
+  static const String assetsImagesOutcommingCallIcon = "assets/images/outcommingCallIcon.svg";
+
   /// Assets for assetsImagesPerson
   /// assets/images/person.png
   static const String assetsImagesPerson = "assets/images/person.png";
@@ -129,6 +145,14 @@ class Assets {
   /// Assets for assetsImagesPerson1
   /// assets/images/person1.png
   static const String assetsImagesPerson1 = "assets/images/person1.png";
+
+  /// Assets for assetsImagesPerson10
+  /// assets/images/person10.png
+  static const String assetsImagesPerson10 = "assets/images/person10.png";
+
+  /// Assets for assetsImagesPerson11
+  /// assets/images/person11.png
+  static const String assetsImagesPerson11 = "assets/images/person11.png";
 
   /// Assets for assetsImagesPerson2
   /// assets/images/person2.png
@@ -149,6 +173,18 @@ class Assets {
   /// Assets for assetsImagesPerson6
   /// assets/images/person6.png
   static const String assetsImagesPerson6 = "assets/images/person6.png";
+
+  /// Assets for assetsImagesPerson7
+  /// assets/images/person7.png
+  static const String assetsImagesPerson7 = "assets/images/person7.png";
+
+  /// Assets for assetsImagesPerson8
+  /// assets/images/person8.png
+  static const String assetsImagesPerson8 = "assets/images/person8.png";
+
+  /// Assets for assetsImagesPerson9
+  /// assets/images/person9.png
+  static const String assetsImagesPerson9 = "assets/images/person9.png";
 
   /// Assets for assetsImagesPhoneAuthImage
   /// assets/images/phone_auth_image.png
@@ -201,5 +237,9 @@ class Assets {
   /// Assets for assetsImagesVideo
   /// assets/images/Video.svg
   static const String assetsImagesVideo = "assets/images/Video.svg";
+
+  /// Assets for assetsImagesVideoCall
+  /// assets/images/videoCall.svg
+  static const String assetsImagesVideoCall = "assets/images/videoCall.svg";
 }
 

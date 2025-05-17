@@ -107,6 +107,12 @@ abstract class AppStyles {
     fontWeight: FontWeight.w800,
     color: AppColor.midGrayColor,
   );
+  static TextStyle styleExtraBold14 = const TextStyle(
+    fontSize: 14,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w900,
+    color: AppColor.midGrayColor,
+  );
   static TextStyle styleExtraBold16 = const TextStyle(
     fontSize: 16,
     fontFamily: 'Poppins',
