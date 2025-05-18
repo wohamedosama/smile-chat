@@ -24,8 +24,8 @@ class ChatItemContainer extends StatelessWidget {
                 child: ListView.separated(
                   separatorBuilder: (context, index) =>
                       const SizedBox(height: 10),
-                  itemBuilder: (context, index) =>
-                      ChatItem(model: model[index]),
+                  itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {}, child: ChatItem(model: model[index])),
                   itemCount: model.length,
                 ),
               ),

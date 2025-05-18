@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:smile_chat/features/home/model/story_model.dart';
 import 'package:smile_chat/features/home/presentation/widgets/story_item.dart';
 import 'package:smile_chat/utils/app_images.dart';
+import 'package:smile_chat/utils/constant.dart';
 
 class StoriesListView extends StatelessWidget {
   const StoriesListView({super.key});
-  final List<StoryModel> users = const [
-    StoryModel(name: 'My status', image: Assets.assetsImagesPerson1),
-    StoryModel(name: 'Adil', image: Assets.assetsImagesPerson2),
-    StoryModel(name: 'Marina', image: Assets.assetsImagesPerson3),
-    StoryModel(name: 'Dean', image: Assets.assetsImagesPerson4),
-    StoryModel(name: 'Max', image: Assets.assetsImagesPerson5),
-    StoryModel(name: 'osos', image: Assets.assetsImagesPerson1),
-    StoryModel(name: 'Adil', image: Assets.assetsImagesPerson2),
-    StoryModel(name: 'Marina', image: Assets.assetsImagesPerson3),
-    StoryModel(name: 'Dean', image: Assets.assetsImagesPerson4),
-    StoryModel(name: 'Max', image: Assets.assetsImagesPerson5),
+  final List<StatusModel> users = const [
+    StatusModel(name: 'My status', image: Assets.assetsImagesPerson1),
+    StatusModel(name: 'Adil', image: Assets.assetsImagesPerson2),
+    StatusModel(name: 'Marina', image: Assets.assetsImagesPerson3),
+    StatusModel(name: 'Dean', image: Assets.assetsImagesPerson4),
+    StatusModel(name: 'Max', image: Assets.assetsImagesPerson5),
+    StatusModel(name: 'osos', image: Assets.assetsImagesPerson1),
+    StatusModel(name: 'Adil', image: Assets.assetsImagesPerson2),
+    StatusModel(name: 'Marina', image: Assets.assetsImagesPerson3),
+    StatusModel(name: 'Dean', image: Assets.assetsImagesPerson4),
+    StatusModel(name: 'Max', image: Assets.assetsImagesPerson5),
   ];
 
   @override
@@ -29,7 +30,11 @@ class StoriesListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Row(
             children: [
-              StoryItem(user: users[index]),
+              StoryItem(
+                  user: users[index],
+                  onTapViewSotry: () =>
+                      Navigator.of(context, rootNavigator: true)
+                          .pushNamed(storyViewedScreen)),
             ],
           );
         },

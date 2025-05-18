@@ -6,6 +6,7 @@ import 'package:smile_chat/features/auth/presentation/screens/register_screen.da
 import 'package:smile_chat/features/home/presentation/screens/home_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/profile_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/search_screen.dart';
+import 'package:smile_chat/features/home/presentation/screens/story_view_screen.dart';
 import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen.dart';
 import 'package:smile_chat/utils/constant.dart';
 
@@ -35,6 +36,8 @@ class AppRouter {
         );
       case profileScreen:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case storyViewedScreen:
+        return MaterialPageRoute(builder: (_) => StoryViewScreen());
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

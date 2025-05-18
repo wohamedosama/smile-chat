@@ -4,9 +4,9 @@ import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
 
 class StoryItem extends StatelessWidget {
-  const StoryItem({super.key, required this.user});
-  final StoryModel user;
-
+  const StoryItem({super.key, required this.user, this.onTapViewSotry});
+  final StatusModel user;
+  final void Function()? onTapViewSotry;
   @override
   Widget build(BuildContext context) {
     final bool isMyStatus = user.name == "My status";
@@ -15,19 +15,22 @@ class StoryItem extends StatelessWidget {
         Stack(
           clipBehavior: Clip.none,
           children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: isMyStatus
-                      ? AppColor.whiteColor.withAlpha(25)
-                      : const Color.fromARGB(255, 206, 161, 15),
-                  width: 2,
+            GestureDetector(
+              onTap: onTapViewSotry,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: isMyStatus
+                        ? AppColor.whiteColor.withAlpha(25)
+                        : const Color.fromARGB(255, 206, 161, 15),
+                    width: 2,
+                  ),
                 ),
-              ),
-              child: CircleAvatar(
-                radius: 26,
-                child: Image.asset(user.image),
+                child: CircleAvatar(
+                  radius: 26,
+                  child: Image.asset(user.image),
+                ),
               ),
             ),
             if (isMyStatus)

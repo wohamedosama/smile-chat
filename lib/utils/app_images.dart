@@ -222,6 +222,10 @@ class Assets {
   /// assets/images/splash_screen.svg
   static const String assetsImagesSplashScreen = "assets/images/splash_screen.svg";
 
+  /// Assets for assetsImagesStoryImage
+  /// assets/images/storyImage.png
+  static const String assetsImagesStoryImage = "assets/images/storyImage.png";
+
   /// Assets for assetsImagesTrash
   /// assets/images/Trash.svg
   static const String assetsImagesTrash = "assets/images/Trash.svg";
