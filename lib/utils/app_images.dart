@@ -14,13 +14,25 @@ class Assets {
   /// assets/images/arrow_back_icon.svg
   static const String assetsImagesArrowBackIcon = "assets/images/arrow_back_icon.svg";
 
+  /// Assets for assetsImagesAttachment
+  /// assets/images/attachment.svg
+  static const String assetsImagesAttachment = "assets/images/attachment.svg";
+
   /// Assets for assetsImagesAudioCall
   /// assets/images/audioCall.svg
   static const String assetsImagesAudioCall = "assets/images/audioCall.svg";
 
+  /// Assets for assetsImagesAudioCallBlackColor
+  /// assets/images/audioCallBlackColor.svg
+  static const String assetsImagesAudioCallBlackColor = "assets/images/audioCallBlackColor.svg";
+
   /// Assets for assetsImagesBalckArrowBackIcon
   /// assets/images/balck_arrow_back_icon.svg
   static const String assetsImagesBalckArrowBackIcon = "assets/images/balck_arrow_back_icon.svg";
+
+  /// Assets for assetsImagesBlackArrowButton
+  /// assets/images/blackArrowButton.svg
+  static const String assetsImagesBlackArrowButton = "assets/images/blackArrowButton.svg";
 
   /// Assets for assetsImagesBlock
   /// assets/images/block.svg
@@ -41,6 +53,10 @@ class Assets {
   /// Assets for assetsImagesCamera
   /// assets/images/Camera.svg
   static const String assetsImagesCamera = "assets/images/Camera.svg";
+
+  /// Assets for assetsImagesCameraIcon
+  /// assets/images/cameraIcon.svg
+  static const String assetsImagesCameraIcon = "assets/images/cameraIcon.svg";
 
   /// Assets for assetsImagesChatIcon
   /// assets/images/chat_icon.svg
@@ -65,6 +81,10 @@ class Assets {
   /// Assets for assetsImagesEnterOtpCodeImage
   /// assets/images/enter_otp_code_image.svg
   static const String assetsImagesEnterOtpCodeImage = "assets/images/enter_otp_code_image.svg";
+
+  /// Assets for assetsImagesFiles
+  /// assets/images/files.svg
+  static const String assetsImagesFiles = "assets/images/files.svg";
 
   /// Assets for assetsImagesGoogle
   /// assets/images/google.svg
@@ -114,6 +134,10 @@ class Assets {
   /// assets/images/Message_icno.svg
   static const String assetsImagesMessageIcno = "assets/images/Message_icno.svg";
 
+  /// Assets for assetsImagesMicrophoneIcon
+  /// assets/images/microphoneIcon.svg
+  static const String assetsImagesMicrophoneIcon = "assets/images/microphoneIcon.svg";
+
   /// Assets for assetsImagesMissidCallIcon
   /// assets/images/missidCallIcon.svg
   static const String assetsImagesMissidCallIcon = "assets/images/missidCallIcon.svg";
@@ -133,6 +157,14 @@ class Assets {
   /// Assets for assetsImagesNotificationIcon
   /// assets/images/Notification_icon.svg
   static const String assetsImagesNotificationIcon = "assets/images/Notification_icon.svg";
+
+  /// Assets for assetsImagesOoops
+  /// assets/images/ooops.png
+  static const String assetsImagesOoops = "assets/images/ooops.png";
+
+  /// Assets for assetsImagesOops
+  /// assets/images/oops.png
+  static const String assetsImagesOops = "assets/images/oops.png";
 
   /// Assets for assetsImagesOutcommingCallIcon
   /// assets/images/outcommingCallIcon.svg
@@ -214,6 +246,10 @@ class Assets {
   /// assets/images/search_icon.png
   static const String assetsImagesSearchIcon = "assets/images/search_icon.png";
 
+  /// Assets for assetsImagesSendIcons
+  /// assets/images/sendIcons.svg
+  static const String assetsImagesSendIcons = "assets/images/sendIcons.svg";
+
   /// Assets for assetsImagesSplash
   /// assets/images/splash.png
   static const String assetsImagesSplash = "assets/images/splash.png";
@@ -245,5 +281,9 @@ class Assets {
   /// Assets for assetsImagesVideoCall
   /// assets/images/videoCall.svg
   static const String assetsImagesVideoCall = "assets/images/videoCall.svg";
+
+  /// Assets for assetsImagesVideoCallBlackColor
+  /// assets/images/videoCallBlackColor.svg
+  static const String assetsImagesVideoCallBlackColor = "assets/images/videoCallBlackColor.svg";
 }
 

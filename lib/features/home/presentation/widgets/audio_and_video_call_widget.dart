@@ -7,9 +7,11 @@ class AudioAndVideoCallsWidget extends StatelessWidget {
     super.key,
     this.onTapAudioCall,
     this.onTapVideoCall,
+    this.isChatScreen = false,
   });
   final void Function()? onTapAudioCall;
   final void Function()? onTapVideoCall;
+  final bool isChatScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,15 @@ class AudioAndVideoCallsWidget extends StatelessWidget {
       children: [
         GestureDetector(
             onTap: onTapAudioCall,
-            child: SvgPicture.asset(Assets.assetsImagesAudioCall)),
+            child: isChatScreen
+                ? SvgPicture.asset(Assets.assetsImagesAudioCallBlackColor)
+                : SvgPicture.asset(Assets.assetsImagesAudioCall)),
         const SizedBox(width: 18),
         GestureDetector(
             onTap: onTapVideoCall,
-            child: SvgPicture.asset(Assets.assetsImagesVideoCall))
+            child: isChatScreen
+                ? SvgPicture.asset(Assets.assetsImagesVideoCallBlackColor)
+                : SvgPicture.asset(Assets.assetsImagesVideoCall))
       ],
     );
   }

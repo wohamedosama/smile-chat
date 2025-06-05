@@ -6,3 +6,4 @@ const String homeScreen = '/homeScreen';
 const String searchScreen = '/searchScreen';
 const String profileScreen = '/profileScreen';
 const String storyViewedScreen = '/storyViewScreen';
+const String chatsScreen = '/chatsScreen';
