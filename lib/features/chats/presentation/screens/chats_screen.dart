@@ -113,26 +113,37 @@ class ChatBubbleItem extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BubbleSpecialTwo(
-              text: 'Hello ! Nazrul How are you?',
-              isSender: false,
-              color: const Color(0xffF2F7FB),
-              tail: false,
-              textStyle: AppStyles.styleSemiBold14
-                  .copyWith(color: AppColor.blackColor),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 20),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-                color: Colors.transparent,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: Text(
-                  now.hour > 12 ? formatter.format(now) : formatter.format(now),
-                  style: AppStyles.styleSemiBold14
-                      .copyWith(color: AppColor.midGrayColor),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: IntrinsicWidth(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    BubbleSpecialTwo(
+                      text: 'Hello ! Nazrul How are you?',
+                      isSender: false,
+                      color: const Color(0xffF2F7FB),
+                      tail: false,
+                      textStyle: AppStyles.styleSemiBold14
+                          .copyWith(color: AppColor.blackColor),
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        color: Colors.transparent,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 4.0, right: 12),
+                        child: Text(
+                          now.hour > 12
+                              ? formatter.format(now)
+                              : formatter.format(now),
+                          style: AppStyles.styleSemiBold14
+                              .copyWith(color: AppColor.midGrayColor),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

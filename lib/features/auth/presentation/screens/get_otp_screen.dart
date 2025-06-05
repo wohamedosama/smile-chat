@@ -5,6 +5,7 @@ import 'package:smile_chat/features/auth/presentation/widgets/pin_code_widget.da
 import 'package:smile_chat/features/auth/presentation/widgets/you_didnot_receive_code_text_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/app_color.dart';
+import 'package:smile_chat/utils/constant.dart';
 
 class GETOTPScereen extends StatelessWidget {
   const GETOTPScereen({super.key});
@@ -29,7 +30,11 @@ class GETOTPScereen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  CustomElevatedButton(onPressed: () {}, text: 'Continue'),
+                  CustomElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(homeScreen);
+                      },
+                      text: 'Continue'),
                 ],
               ),
               const SizedBox(height: 12),
