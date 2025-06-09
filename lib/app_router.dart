@@ -14,7 +14,7 @@ import 'package:smile_chat/utils/constant.dart';
 class AppRouter {
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case landingScreen:
         return MaterialPageRoute(builder: (_) => const LandingScreen());
       case loginUsingMobileNumber:
         return MaterialPageRoute(
