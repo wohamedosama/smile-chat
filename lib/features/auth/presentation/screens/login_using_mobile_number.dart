@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smile_chat/features/auth/data/text_model.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_SVG_image.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_app_bar.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_text_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
 import 'package:smile_chat/utils/app_images.dart';
+import 'package:smile_chat/utils/constant.dart';
 
 class LoginUsingMobileNumber extends StatelessWidget {
   const LoginUsingMobileNumber({super.key});
@@ -20,46 +25,24 @@ class LoginUsingMobileNumber extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 15),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: SvgPicture.asset(
-                        height: 50,
-                        Assets.assetsImagesArrowBackIcon,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Spacer(),
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: Image.asset(
-                        fit: BoxFit.cover,
-                        Assets.assetsImagesLogo,
-                      ),
-                    )
-                  ],
-                ),
+                CustomAppBar(),
                 // SizedBox(height: 50),
-                Text(
-                  'Hello!',
+                CustomTextWidget(
+                    textModel: TextModel(
+                  text: 'Hello!',
                   style: AppStyles.styleSemiBoldwhiteColor45,
-                ),
+                )),
                 SizedBox(height: 10),
-                Text(
-                  'we are requesting your mobile number just to enter our platform for login purpose.',
-                  style: AppStyles.styleRegular16
-                      .copyWith(color: AppColor.whiteColor),
+                CustomTextWidget(
+                  textModel: TextModel(
+                    text:
+                        'we are requesting your mobile number just to enter our platform for login purpose.',
+                    style: AppStyles.styleRegular16
+                        .copyWith(color: AppColor.whiteColor),
+                  ),
                 ),
                 SizedBox(height: 25),
-                Image.asset(
-                  Assets.assetsImagesPhoneAuthImage,
-                  fit: BoxFit.contain,
-                ),
+                CustomSVGImage(imagePath: Assets.assetsImagesPhoneAuthImage),
 
                 TextFormField(
                   style: AppStyles.styleMediumWithWhiteColor16,
@@ -99,7 +82,9 @@ class LoginUsingMobileNumber extends StatelessWidget {
                 ),
                 SizedBox(height: 40),
                 CustomElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, getOTPScreen);
+                  },
                   text: 'Get OTP',
                 ),
                 SizedBox(height: 30),
