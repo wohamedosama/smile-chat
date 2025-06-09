@@ -3,6 +3,7 @@ import 'package:smile_chat/features/auth/presentation/widgets/custom_svg_image.d
 import 'package:smile_chat/features/home/model/data/settings_model_list.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
+import 'package:smile_chat/utils/constant.dart';
 
 class SettingsItemsTile extends StatelessWidget {
   const SettingsItemsTile({
@@ -27,10 +28,18 @@ class SettingsItemsTile extends StatelessWidget {
               ),
             ),
             title: item.title == 'Logout'
-                ? Text(
-                    item.title,
-                    style: AppStyles.styleMedium19
-                        .copyWith(color: AppColor.redColor),
+                ? GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        landingScreen,
+                        (route) => false,
+                      );
+                    },
+                    child: Text(
+                      item.title,
+                      style: AppStyles.styleMedium19
+                          .copyWith(color: AppColor.redColor),
+                    ),
                   )
                 : Text(
                     item.title,
