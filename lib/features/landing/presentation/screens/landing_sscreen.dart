@@ -3,15 +3,17 @@ import 'package:smile_chat/features/landing/presentation/widgets/login_buttons.d
 import 'package:smile_chat/features/landing/presentation/widgets/login_using_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/sub_title_widget.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/welcome_back_text_widget.dart';
+import 'package:smile_chat/utils/app_color.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: AppColor.whiteColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28.0),
+        padding: EdgeInsets.symmetric(horizontal: 28.0),
         child: Column(
           children: [
             SizedBox(height: 100),
@@ -20,7 +22,7 @@ class LandingScreen extends StatelessWidget {
             SubTitleWidget(),
             SizedBox(height: 30),
             LoginUsingWidget(),
-            const Spacer(),
+            Spacer(),
             LoginButtons(),
           ],
         ),

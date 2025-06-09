@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_chat/features/auth/data/text_model.dart' show TextModel;
+
 
 class CustomTextWidget extends StatelessWidget {
   const CustomTextWidget({

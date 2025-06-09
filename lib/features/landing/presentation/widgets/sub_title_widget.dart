@@ -16,7 +16,7 @@ class SubTitleWidget extends StatelessWidget {
               TextSpan(
                   text: ' Smilechat ',
                   style: AppStyles.styleSemiBold16
-                      .copyWith(color: Color(0xff130856))),
+                      .copyWith(color: const Color(0xff130856))),
               TextSpan(
                   text:
                       'App with two different login.User can  prefer the way to login',
