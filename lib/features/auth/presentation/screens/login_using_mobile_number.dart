@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/data/text_model.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_app_bar.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/custom_png_image.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/custom_text_widget.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/enter_mobile_number_text_field.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/terms_and_conditions_list.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_elevated_button.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
