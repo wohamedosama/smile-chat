@@ -2,25 +2,43 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:smile_chat/utils/firebase_error_text/firebase_error_text.dart';
 
 part 'email_auth_state.dart';
 
 class EmailAuthCubit extends Cubit<EmailAuthState> {
   EmailAuthCubit() : super(EmailAuthInitial());
 
-  Future<void> createNewUser(String email, String password) async {
+  bool isPasswordConfimred(String password, String confirmPassword) {
+    return password == confirmPassword;
+  }
+
+  Future<void> createNewUser(
+    String userName,
+    String email,
+    String password,
+    String confirmPassword,
+  ) async {
     try {
       emit(CreateNewUserUsingEmailLoadingState());
-      final credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+
+      if (!isPasswordConfimred(password, confirmPassword)) {
+        emit(CreateNewUserUsingEmailFailureState(
+          errorMessage: 'Password do not match',
+        ));
+      }
+
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      print('✅ Firebase user created: ${credential.user?.email}');
+
       emit(CreateNewUserUsingEmailSuccessState());
     } catch (error) {
       print('❌ Error occurred: $error');
-      emit(CreateNewUserUsingEmailFailureState(errorMessage: error.toString()));
+      emit(CreateNewUserUsingEmailFailureState(
+          errorMessage: FirebaseErrorUtils.getRegistrationErrorMessage(
+              error.toString())));
     }
   }
 

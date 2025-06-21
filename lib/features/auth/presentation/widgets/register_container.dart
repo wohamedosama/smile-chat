@@ -16,6 +16,8 @@ class RegisterContainer extends StatelessWidget {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final TextEditingController confirmPassword = TextEditingController();
+  final TextEditingController userName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +61,9 @@ class RegisterContainer extends StatelessWidget {
                         spacing: 40,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const CustomTextFromField(
+                          CustomTextFromField(
                             labelText: 'Your Name',
+                            controller: userName,
                           ),
                           CustomTextFromField(
                             labelText: 'Your email',
@@ -85,7 +88,8 @@ class RegisterContainer extends StatelessWidget {
                             labelText: 'Password',
                             controller: password,
                           ),
-                          const CustomTextFromField(
+                          CustomTextFromField(
+                              controller: confirmPassword,
                               labelText: 'Confirm Password'),
                         ],
                       ),
@@ -107,7 +111,11 @@ class RegisterContainer extends StatelessWidget {
                           if (formkey.currentState!.validate()) {
                             BlocProvider.of<EmailAuthCubit>(context)
                                 .createNewUser(
-                                    email.text.trim(), password.text.trim());
+                              userName.text.trim(),
+                              email.text.trim(),
+                              password.text.trim(),
+                              confirmPassword.text.trim(),
+                            );
                           }
                         },
                       ),
@@ -122,119 +130,3 @@ class RegisterContainer extends StatelessWidget {
     );
   }
 }
-
-// ignore_for_file: use_build_context_synchronously
-
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
-
-// class RegisterContainer extends StatefulWidget {
-//   const RegisterContainer({super.key});
-
-//   @override
-//   State<RegisterContainer> createState() => _RegisterContainerState();
-// }
-
-// class _RegisterContainerState extends State<RegisterContainer> {
-//   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-//   final TextEditingController email = TextEditingController();
-//   final TextEditingController password = TextEditingController();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocConsumer<EmailAuthCubit, EmailAuthState>(
-//       listener: (context, state) {
-//         print(
-//             '🔔 BlocConsumer listener called with state: ${state.runtimeType}');
-
-//         if (state is CreateNewUserUsingEmailFailureState) {
-//           print('❌ Registration failed: ${state.errorMessage}');
-//           ScaffoldMessenger.of(context).showSnackBar(
-//             SnackBar(content: Text('Error: ${state.errorMessage}')),
-//           );
-//         } else if (state is CreateNewUserUsingEmailSuccessState) {
-//           print('✅ Registration successful');
-//           ScaffoldMessenger.of(context).showSnackBar(
-//             const SnackBar(content: Text('Registration successful!')),
-//           );
-//         }
-//       },
-//       builder: (context, state) {
-//         print(
-//             '🏗️ BlocConsumer builder called with state: ${state.runtimeType}');
-
-//         return Expanded(
-//           child: Container(
-//             padding: const EdgeInsets.all(20),
-//             child: Form(
-//               key: formkey,
-//               child: Column(
-//                 children: [
-//                   TextFormField(
-//                     controller: email,
-//                     decoration: const InputDecoration(labelText: 'Email'),
-//                     validator: (value) {
-//                       if (value == null || value.isEmpty) {
-//                         return 'Email is required';
-//                       }
-//                       return null;
-//                     },
-//                   ),
-//                   const SizedBox(height: 20),
-//                   TextFormField(
-//                     controller: password,
-//                     decoration: const InputDecoration(labelText: 'Password'),
-//                     obscureText: true,
-//                     validator: (value) {
-//                       if (value == null || value.isEmpty) {
-//                         return 'Password is required';
-//                       }
-//                       if (value.length < 6) {
-//                         return 'Password must be at least 6 characters';
-//                       }
-//                       return null;
-//                     },
-//                   ),
-//                   const SizedBox(height: 40),
-//                   ElevatedButton(
-//                     onPressed: state is CreateNewUserUsingEmailLoadingState
-//                         ? null
-//                         : () {
-//                             print('🔘 REGISTER BUTTON PRESSED');
-
-//                             if (formkey.currentState!.validate()) {
-//                               print('✅ Form validated successfully');
-//                               print('📧 Email: "${email.text}"');
-//                               print(
-//                                   '🔑 Password length: ${password.text.length}');
-
-//                               // Direct call to test
-//                               context.read<EmailAuthCubit>().createNewUser(
-//                                     email.text.trim(),
-//                                     password.text,
-//                                   );
-//                             } else {
-//                               print('❌ Form validation failed');
-//                             }
-//                           },
-//                     child: state is CreateNewUserUsingEmailLoadingState
-//                         ? const CircularProgressIndicator()
-//                         : const Text('Register'),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-
-//   @override
-//   void dispose() {
-//     email.dispose();
-//     password.dispose();
-//     super.dispose();
-//   }
-// }
