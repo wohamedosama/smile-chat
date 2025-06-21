@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
+import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart'
+    show EmailAuthCubit;
 import 'package:smile_chat/features/auth/presentation/screens/get_otp_screen.dart';
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mail_id_screen.dart';
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mobile_number.dart';
@@ -16,7 +17,7 @@ import 'package:smile_chat/utils/constant.dart';
 class AppRouter {
   //EmailAuthCubit? emailAuthCubit;
   AppRouter() {
-    //emailAuthCubit = EmailAuthCubit();
+    // emailAuthCubit = EmailAuthCubit();
   }
 
   Route<dynamic> generateRoute(RouteSettings settings) {
@@ -36,10 +37,11 @@ class AppRouter {
 
       case loginUsingEmail:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider<EmailAuthCubit>.value(
-                  value: EmailAuthCubit(),
-                  child: const LoginUsingMailIdScreen(),
-                ));
+          builder: (_) => BlocProvider<EmailAuthCubit>.value(
+            value: EmailAuthCubit(),
+            child: const LoginUsingMailIdScreen(),
+          ),
+        );
       case registerScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<EmailAuthCubit>.value(

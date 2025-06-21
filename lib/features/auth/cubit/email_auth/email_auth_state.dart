@@ -13,3 +13,11 @@ final class CreateNewUserUsingEmailFailureState extends EmailAuthState {
   final String errorMessage;
   CreateNewUserUsingEmailFailureState({required this.errorMessage});
 }
+
+final class LogoutSuccessStata extends EmailAuthState {}
+
+final class LogoutFailurestate extends EmailAuthState {
+  final String errorMessge;
+
+  LogoutFailurestate({required this.errorMessge});
+}

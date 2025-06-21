@@ -6,6 +6,7 @@ import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart'
 import 'package:smile_chat/features/auth/presentation/widgets/create_an_account_and_already_a_user_text_button.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/cusotm_text_form_field.dart';
 import 'package:smile_chat/utils/app_color.dart';
+import 'package:smile_chat/utils/constant.dart';
 import 'package:smile_chat/utils/flutter_toast/flutter_toast.dart';
 
 class RegisterContainer extends StatelessWidget {
@@ -37,7 +38,7 @@ class RegisterContainer extends StatelessWidget {
           MyToast.showToast(
               message: 'User Created Successful', state: ToastState.success);
           const Duration(seconds: 2);
-          //  Navigator.pushNamed(context, loginUsingEmail);
+          Navigator.pushNamed(context, loginUsingEmail);
         }
       },
       builder: (context, state) {

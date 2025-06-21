@@ -1,13 +1,10 @@
 // ignore_for_file: avoid_print
-
-// email_auth_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 part 'email_auth_state.dart';
 
-// Step 5: Make sure your cubit has debug prints
 class EmailAuthCubit extends Cubit<EmailAuthState> {
   EmailAuthCubit() : super(EmailAuthInitial());
 
@@ -24,6 +21,15 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     } catch (error) {
       print('❌ Error occurred: $error');
       emit(CreateNewUserUsingEmailFailureState(errorMessage: error.toString()));
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      emit(LogoutSuccessStata());
+    } catch (error) {
+      emit(LogoutFailurestate(errorMessge: error.toString()));
     }
   }
 }
