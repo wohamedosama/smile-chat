@@ -1,16 +1,21 @@
+import 'package:bloc/bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:smile_chat/app_router.dart';
 import 'package:smile_chat/features/error/screens/modern_error_screen.dart';
 import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen.dart';
+import 'package:smile_chat/firebase_options.dart';
+import 'package:smile_chat/my_observer.dart';
 
-void main() {
-  ErrorWidget.builder = (FlutterErrorDetails details) => ModernErrorScreen(
-        errorDetails: details,
-      );
-
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+Future<void> main() async {
+  ErrorWidget.builder =
+      (FlutterErrorDetails details) => ModernErrorScreen(errorDetails: details);
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   Future.delayed(const Duration(seconds: 3));
   FlutterNativeSplash.remove();
   runApp(const SmileChat());

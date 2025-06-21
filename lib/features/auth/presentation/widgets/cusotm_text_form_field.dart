@@ -11,6 +11,9 @@ class CustomTextFromField extends StatelessWidget {
     this.cursorColor,
     this.enabledBorderColor,
     this.focusedBorderColor,
+    this.controller,
+    this.validator,
+    this.isPassword = false,
   });
   final String labelText;
   final TextStyle? labelStyle;
@@ -18,9 +21,15 @@ class CustomTextFromField extends StatelessWidget {
   final Color? cursorColor;
   final Color? enabledBorderColor;
   final Color? focusedBorderColor;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final bool isPassword;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: isPassword,
+      validator: validator,
+      controller: controller,
       style: textFormFieldStyle ?? AppStyles.styleRegularWithWhiteColor16,
       cursorColor: AppColor.whiteColor,
       decoration: InputDecoration(

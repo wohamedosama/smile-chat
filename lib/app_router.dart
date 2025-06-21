@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
 import 'package:smile_chat/features/auth/presentation/screens/get_otp_screen.dart';
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mail_id_screen.dart';
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mobile_number.dart';
@@ -12,22 +14,39 @@ import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen
 import 'package:smile_chat/utils/constant.dart';
 
 class AppRouter {
+  //EmailAuthCubit? emailAuthCubit;
+  AppRouter() {
+    //emailAuthCubit = EmailAuthCubit();
+  }
+
   Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case landingScreen:
         return MaterialPageRoute(builder: (_) => const LandingScreen());
       case loginUsingMobileNumber:
         return MaterialPageRoute(
-            builder: (_) => const LoginUsingMobileNumber());
+          builder: (_) => LoginUsingMobileNumber(),
+        );
 
       case getOTPScreen:
-        return MaterialPageRoute(builder: (_) => const GETOTPScereen());
+        final phoneNumber = settings.arguments;
+        return MaterialPageRoute(
+          builder: (_) => GETOTPScereen(phoneNumber: phoneNumber),
+        );
 
       case loginUsingEmail:
         return MaterialPageRoute(
-            builder: (_) => const LoginUsingMailIdScreen());
+            builder: (_) => BlocProvider<EmailAuthCubit>.value(
+                  value: EmailAuthCubit(),
+                  child: const LoginUsingMailIdScreen(),
+                ));
       case registerScreen:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider<EmailAuthCubit>.value(
+            value: EmailAuthCubit(),
+            child: const RegisterScreen(),
+          ),
+        );
 
       case homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());

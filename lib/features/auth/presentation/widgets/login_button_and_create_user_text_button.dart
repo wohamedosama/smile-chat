@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/auth_toggle_prompt.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/customize_button_to_login.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/login_text_child.dart';
-import 'package:smile_chat/utils/app_color.dart';
 
 class LoginButtonAndCreateUserTextButton extends StatelessWidget {
   const LoginButtonAndCreateUserTextButton({
@@ -28,7 +27,7 @@ class LoginButtonAndCreateUserTextButton extends StatelessWidget {
         AuthTogglePrompt(
           customTextButtonText: customTextButtonText,
           customTextwidgetText: customTextwidgetText,
-          onPressed: onPressedRegisterButton,
+          pressToNaviagateToRegisterScreen: onPressedRegisterButton,
         ),
       ],
     );

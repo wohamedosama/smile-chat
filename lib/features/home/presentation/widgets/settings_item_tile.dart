@@ -29,11 +29,8 @@ class SettingsItemsTile extends StatelessWidget {
             ),
             title: item.title == 'Logout'
                 ? GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        landingScreen,
-                        (route) => false,
-                      );
+                    onTap: () async {
+                      Navigator.of(context).pushReplacementNamed(landingScreen);
                     },
                     child: Text(
                       item.title,

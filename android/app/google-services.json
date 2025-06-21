@@ -12,7 +12,20 @@
           "package_name": "com.example.smile_chat"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "639932064883-2bf4ogbudm8udcn2su6mdc4hahrk7n2j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smile_chat",
+            "certificate_hash": "aae494a44221ee07ae2dd237fca6feba3cba2034"
+          }
+        },
+        {
+          "client_id": "639932064883-96ouumc6ihb5kpbm5q8nssddfs3f8g80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAIUJ9M3Op-LYo29dvwyWPHyvbCHA9JNdg"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639932064883-96ouumc6ihb5kpbm5q8nssddfs3f8g80.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "639932064883-5bjjqnn3qgpvg0rlhrjk382d6jfl2c2v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smileChat"
+              }
+            }
+          ]
         }
       }
     }
