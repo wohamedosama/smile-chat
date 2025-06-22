@@ -1,10 +1,10 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/create_an_account_and_already_a_user_text_button.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/cusotm_text_form_field.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/register_form_fields.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/constant.dart';
 import 'package:smile_chat/utils/flutter_toast/flutter_toast.dart';
@@ -22,25 +22,18 @@ class RegisterContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<EmailAuthCubit, EmailAuthState>(
-      listenWhen: (previous, current) => previous != current,
-      listener: (context, state) {
-        if (state is CreateNewUserUsingEmailLoadingState) {
-          const Center(
-            child: CircularProgressIndicator(
-              color: AppColor.primaryColor,
-            ),
-          );
-        }
-        if (state is CreateNewUserUsingEmailFailureState) {
-          print('❌ Registration failed: ${state.errorMessage}');
-          MyToast.showToast(
-              message: state.errorMessage.toString(), state: ToastState.failed);
-        } else if (state is CreateNewUserUsingEmailSuccessState) {
+      listener: (context, state) async {
+        if (state is CreateNewUserUsingEmailSuccessState) {
           print('✅ User Created successful');
           MyToast.showToast(
               message: 'User Created Successful', state: ToastState.success);
-          const Duration(seconds: 2);
-          Navigator.pushNamed(context, loginUsingEmail);
+
+          await Future.delayed(const Duration(milliseconds: 500));
+          Navigator.pushReplacementNamed(context, loginUsingEmail);
+        } else if (state is CreateNewUserUsingEmailFailureState) {
+          print('❌ Registration failed: ${state.errorMessage}');
+          MyToast.showToast(
+              message: state.errorMessage.toString(), state: ToastState.failed);
         }
       },
       builder: (context, state) {
@@ -57,56 +50,20 @@ class RegisterContainer extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const SizedBox(height: 14),
-                      Column(
-                        spacing: 40,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          CustomTextFromField(
-                            labelText: 'Your Name',
-                            controller: userName,
-                          ),
-                          CustomTextFromField(
-                            labelText: 'Your email',
-                            controller: email,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Email is required';
-                              }
-                              return null;
-                            },
-                          ),
-                          CustomTextFromField(
-                            isPassword: true,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Password is required';
-                              } else if (value.length < 6) {
-                                return 'Password should be at least 6 characters';
-                              }
-                              return null;
-                            },
-                            labelText: 'Password',
-                            controller: password,
-                          ),
-                          CustomTextFromField(
-                              controller: confirmPassword,
-                              labelText: 'Confirm Password'),
-                        ],
+                      RegisterFromFields(
+                        userName: userName,
+                        email: email,
+                        password: password,
+                        confirmPassword: confirmPassword,
                       ),
-                      // CustomColumnContainOfCustomTextFormFieldInTheRegisterScreen(
-                      //   emailController: email,
-                      //   passwordController: password,
-                      // ),
                       const SizedBox(height: 50),
                       CreateAnAccountAndAlreadyAUserTextButton(
+                        pressToNaviagateToLoginScreen: () =>
+                            Navigator.of(context)
+                                .pushReplacementNamed(loginUsingEmail),
                         customTextButtonText: 'Sign in',
                         customTextwidgetText: 'Already a user ?',
-                        text: state is CreateNewUserUsingEmailLoadingState
-                            ? const Center(
-                                child: CircularProgressIndicator(
-                                color: AppColor.primaryColor,
-                              )).toString()
-                            : 'Create an account',
+                        text: 'Create an account',
                         onPressedRegisterButton: () {
                           if (formkey.currentState!.validate()) {
                             BlocProvider.of<EmailAuthCubit>(context)

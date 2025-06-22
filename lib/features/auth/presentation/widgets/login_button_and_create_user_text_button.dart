@@ -27,7 +27,7 @@ class LoginButtonAndCreateUserTextButton extends StatelessWidget {
         AuthTogglePrompt(
           customTextButtonText: customTextButtonText,
           customTextwidgetText: customTextwidgetText,
-          pressToNaviagateToRegisterScreen: onPressedRegisterButton,
+          pressToNaviagateToLoginScreen: onPressedRegisterButton,
         ),
       ],
     );

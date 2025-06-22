@@ -6,14 +6,14 @@ import 'package:smile_chat/features/auth/presentation/widgets/login_text_child.d
 class CreateAnAccountAndAlreadyAUserTextButton extends StatelessWidget {
   const CreateAnAccountAndAlreadyAUserTextButton({
     this.onPressedRegisterButton,
-    this.pressToNaviagateToRegisterScreen,
+    this.pressToNaviagateToLoginScreen,
     super.key,
     required this.text,
     required this.customTextButtonText,
     required this.customTextwidgetText,
   });
 
-  final void Function()? pressToNaviagateToRegisterScreen;
+  final void Function()? pressToNaviagateToLoginScreen;
   final void Function()? onPressedRegisterButton;
   final String text;
   final String customTextButtonText;
@@ -32,7 +32,7 @@ class CreateAnAccountAndAlreadyAUserTextButton extends StatelessWidget {
         AuthTogglePrompt(
           customTextButtonText: customTextButtonText,
           customTextwidgetText: customTextwidgetText,
-          pressToNaviagateToRegisterScreen: pressToNaviagateToRegisterScreen,
+          pressToNaviagateToLoginScreen: pressToNaviagateToLoginScreen,
         ),
       ],
     );

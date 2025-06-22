@@ -13,6 +13,26 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     return password == confirmPassword;
   }
 
+  bool validateUsername(String username) {
+    if (username.trim().isEmpty) {
+      return false;
+    }
+    if (username.trim().length < 2) {
+      return false;
+    }
+    final validUsernameRegex = RegExp(r'^[a-zA-Z0-9_-]+$');
+    return validUsernameRegex.hasMatch(username.trim());
+  }
+
+  bool validateEmail(String email) {
+    final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
+    return emailRegex.hasMatch(email.trim());
+  }
+
+  bool validatePassword(String password) {
+    return password.length >= 6;
+  }
+
   Future<void> createNewUser(
     String userName,
     String email,
@@ -22,23 +42,52 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     try {
       emit(CreateNewUserUsingEmailLoadingState());
 
-      if (!isPasswordConfimred(password, confirmPassword)) {
+      if (!validateUsername(userName)) {
         emit(CreateNewUserUsingEmailFailureState(
-          errorMessage: 'Password do not match',
+          errorMessage:
+              'Username must be at least 2 characters and contain only letters, numbers, underscore, or hyphen',
         ));
+        return;
       }
 
+      if (!validateEmail(email)) {
+        emit(CreateNewUserUsingEmailFailureState(
+          errorMessage:
+              FirebaseErrorUtils.getRegistrationErrorMessage('invalid-email'),
+        ));
+        return;
+      }
+      if (!validatePassword(password)) {
+        emit(CreateNewUserUsingEmailFailureState(
+          errorMessage:
+              FirebaseErrorUtils.getRegistrationErrorMessage('weak-password'),
+        ));
+        return; // Important: return to stop execution
+      }
+
+      // Validate password confirmation
+      if (!isPasswordConfimred(password, confirmPassword)) {
+        emit(CreateNewUserUsingEmailFailureState(
+          errorMessage: 'Passwords do not match',
+        ));
+        return; // Important: return to stop execution
+      }
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
+        email: email.trim(),
         password: password,
       );
-
       emit(CreateNewUserUsingEmailSuccessState());
+    } on FirebaseAuthException catch (error) {
+      String errorMessage =
+          FirebaseErrorUtils.getRegistrationErrorMessage(error.code);
+      print('❌ Firebase Auth Error: ${error.code} - ${error.message}');
+      emit(CreateNewUserUsingEmailFailureState(errorMessage: errorMessage));
     } catch (error) {
-      print('❌ Error occurred: $error');
+      print('❌ Unexpected error occurred: $error');
       emit(CreateNewUserUsingEmailFailureState(
-          errorMessage: FirebaseErrorUtils.getRegistrationErrorMessage(
-              error.toString())));
+        errorMessage:
+            FirebaseErrorUtils.getRegistrationErrorMessage('internal-error'),
+      ));
     }
   }
 

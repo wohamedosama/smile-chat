@@ -7,12 +7,12 @@ import 'package:smile_chat/utils/app_font_size.dart';
 
 class AuthTogglePrompt extends StatelessWidget {
   const AuthTogglePrompt({
-    this.pressToNaviagateToRegisterScreen,
+    this.pressToNaviagateToLoginScreen,
     super.key,
     required this.customTextwidgetText,
     required this.customTextButtonText,
   });
-  final void Function()? pressToNaviagateToRegisterScreen;
+  final void Function()? pressToNaviagateToLoginScreen;
   final String customTextwidgetText;
   final String customTextButtonText;
 
@@ -30,7 +30,7 @@ class AuthTogglePrompt extends StatelessWidget {
         CustomTextButton(
           text: customTextButtonText,
           style: AppStyles.styleSemiBold16,
-          onPressed: pressToNaviagateToRegisterScreen,
+          onPressed: pressToNaviagateToLoginScreen,
         ),
       ],
     );
