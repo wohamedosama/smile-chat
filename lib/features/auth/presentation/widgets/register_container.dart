@@ -27,8 +27,8 @@ class RegisterContainer extends StatelessWidget {
           print('✅ User Created successful');
           MyToast.showToast(
               message: 'User Created Successful', state: ToastState.success);
+          const Duration(seconds: 2);
 
-          await Future.delayed(const Duration(milliseconds: 500));
           Navigator.pushReplacementNamed(context, loginUsingEmail);
         } else if (state is CreateNewUserUsingEmailFailureState) {
           print('❌ Registration failed: ${state.errorMessage}');
@@ -63,19 +63,27 @@ class RegisterContainer extends StatelessWidget {
                                 .pushReplacementNamed(loginUsingEmail),
                         customTextButtonText: 'Sign in',
                         customTextwidgetText: 'Already a user ?',
-                        text: 'Create an account',
-                        onPressedRegisterButton: () {
-                          if (formkey.currentState!.validate()) {
-                            BlocProvider.of<EmailAuthCubit>(context)
-                                .createNewUser(
-                              userName.text.trim(),
-                              email.text.trim(),
-                              password.text.trim(),
-                              confirmPassword.text.trim(),
-                            );
-                          }
-                        },
+                        text: state is CreateNewUserUsingEmailLoadingState
+                            ? 'Creating...'
+                            : 'Create an account',
+                        onPressedRegisterButton:
+                            state is CreateNewUserUsingEmailLoadingState
+                                ? null // Disable button during loading
+                                : () {
+                                    if (formkey.currentState!.validate()) {
+                                      BlocProvider.of<EmailAuthCubit>(context)
+                                          .createNewUser(
+                                        userName.text.trim(),
+                                        email.text.trim(),
+                                        password.text.trim(),
+                                        confirmPassword.text.trim(),
+                                      );
+                                    }
+                                    formkey.currentState!.reset();
+                                  },
                       ),
+                      if (state is CreateNewUserUsingEmailLoadingState)
+                        const CustomCircleProgressIndicator(),
                     ],
                   ),
                 ),
@@ -84,6 +92,22 @@ class RegisterContainer extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class CustomCircleProgressIndicator extends StatelessWidget {
+  const CustomCircleProgressIndicator({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.only(top: 20),
+      child: CircularProgressIndicator(
+        color: AppColor.deepPurbleColor,
+      ),
     );
   }
 }

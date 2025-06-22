@@ -37,11 +37,13 @@ class LoginContainer extends StatelessWidget {
                 const ForgetPasswordTextButton(),
                 const SizedBox(height: 50),
                 LoginButtonAndCreateUserTextButton(
+                  clickToNavigateToHomeScreen: () =>
+                      Navigator.pushReplacementNamed(context, homeScreen),
                   text: 'Log In',
                   customTextButtonText: 'Register',
                   customTextwidgetText: 'Create user ?',
                   onPressedRegisterButton: () {
-                    Navigator.pushNamed(context, registerScreen);
+                    Navigator.pushReplacementNamed(context, registerScreen);
                   },
                 ),
               ],
