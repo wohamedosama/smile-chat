@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/cusotm_text_form_field.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_circle_progress_indicator.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_icon_button.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/email_and_password_login_form_fields.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/forget_password_text_button.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/login_button_and_create_user_text_button.dart';
 import 'package:smile_chat/features/landing/presentation/widgets/custom_divider.dart';
@@ -54,34 +54,8 @@ class LoginContainer extends StatelessWidget {
                       const SizedBox(height: 40),
                       CustomDivider(style: AppStyles.styleExtraBold16),
                       const SizedBox(height: 40),
-                      CustomTextFromField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Email is required';
-                          } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$')
-                              .hasMatch(value.trim())) {
-                            return 'Please enter a valid email address';
-                          }
-                          return null;
-                        },
-                        labelText: 'Your email',
-                        controller: email,
-                      ),
-                      const SizedBox(height: 40),
-                      CustomTextFromField(
-                        isPassword: true,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Password is required';
-                          } else if (value.length < 6) {
-                            return 'Password should be at least 6 characters';
-                          }
-                          return null;
-                        },
-                        labelText: 'Password',
-                        controller: password,
-                      ),
-                      const SizedBox(height: 14),
+                      EmailAndPasswordLoginFormFields(
+                          email: email, password: password),
                       ForgetPasswordTextButton(
                         pressToNavigateToForgetPasswordScreen: () {
                           Navigator.pushNamed(context, forgetPasswordScreen);
