@@ -91,6 +91,46 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     }
   }
 
+  Future<void> loginUsingMail(
+      {required String email, required String password}) async {
+    try {
+      emit(LoginUsingEmailLoadingState());
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      emit(LoginUsingEmailSuccessState());
+    } on FirebaseAuthException catch (error) {
+      String errorMessage =
+          FirebaseErrorUtils.getSignInErrorMessage(error.code);
+      print('❌ Firebase Auth Error: ${error.code} - ${error.message}');
+      emit(LoginUsingEmailFailureState(errorMessage: errorMessage));
+    } catch (error) {
+      print('❌ Unexpected error occurred: $error');
+      emit(LoginUsingEmailFailureState(
+        errorMessage:
+            FirebaseErrorUtils.getSignInErrorMessage('internal-error'),
+      ));
+    }
+  }
+
+  Future<void> resetPassword(String email) async {
+    try {
+      emit(ResetPasswordUsingEmailLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      emit(ResetPasswordUsingEmailSuccessState());
+    } on FirebaseAuthException catch (error) {
+      String errorMessage =
+          FirebaseErrorUtils.getPasswordResetErrorMessage(error.code);
+      print('❌ Firebase Auth Error: ${error.code} - ${error.message}');
+      emit(ResetPasswordUsingEmailFailureState(errorMessage: errorMessage));
+    } catch (error) {
+      print('❌ Unexpected error occurred: $error');
+      emit(ResetPasswordUsingEmailFailureState(
+        errorMessage:
+            FirebaseErrorUtils.getPasswordResetErrorMessage('internal-error'),
+      ));
+    }
+  }
+
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut();

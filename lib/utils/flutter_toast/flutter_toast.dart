@@ -14,7 +14,7 @@ class MyToast {
         ),
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
-        textColor: AppColor.deepPurbleColor);
+        textColor: AppColor.whiteColor);
   }
 }
 
@@ -27,7 +27,7 @@ Color choseToastColor({ToastState? state}) {
       color = AppColor.lightYellowColor;
       break;
     case ToastState.success:
-      color = AppColor.darkGreenColor;
+      color = AppColor.greenColor;
       break;
 
     case ToastState.failed:

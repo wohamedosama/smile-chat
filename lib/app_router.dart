@@ -12,12 +12,13 @@ import 'package:smile_chat/features/home/presentation/screens/profile_screen.dar
 import 'package:smile_chat/features/home/presentation/screens/search_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/story_view_screen.dart';
 import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen.dart';
+import 'package:smile_chat/features/auth/presentation/screens/forget_password_screen.dart';
 import 'package:smile_chat/utils/constant.dart';
 
 class AppRouter {
-  //EmailAuthCubit? emailAuthCubit;
+  EmailAuthCubit? emailAuthCubit;
   AppRouter() {
-    // emailAuthCubit = EmailAuthCubit();
+    emailAuthCubit = EmailAuthCubit();
   }
 
   Route<dynamic> generateRoute(RouteSettings settings) {
@@ -38,18 +39,24 @@ class AppRouter {
       case loginUsingEmail:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<EmailAuthCubit>.value(
-            value: EmailAuthCubit(),
+            value: emailAuthCubit!,
             child: const LoginUsingMailIdScreen(),
           ),
         );
       case registerScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<EmailAuthCubit>.value(
-            value: EmailAuthCubit(),
+            value: emailAuthCubit!,
             child: const RegisterScreen(),
           ),
         );
-
+      case forgetPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider<EmailAuthCubit>.value(
+            value: emailAuthCubit!,
+            child: const ForgetPasswordScreen(),
+          ),
+        );
       case homeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case searchScreen:

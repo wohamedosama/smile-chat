@@ -23,6 +23,15 @@ final class LoginUsingEmailFailureState extends EmailAuthState {
   LoginUsingEmailFailureState({required this.errorMessage});
 }
 
+final class ResetPasswordUsingEmailLoadingState extends EmailAuthState {}
+
+final class ResetPasswordUsingEmailSuccessState extends EmailAuthState {}
+
+final class ResetPasswordUsingEmailFailureState extends EmailAuthState {
+  final String errorMessage;
+  ResetPasswordUsingEmailFailureState({required this.errorMessage});
+}
+
 final class LogoutSuccessStata extends EmailAuthState {}
 
 final class LogoutFailurestate extends EmailAuthState {

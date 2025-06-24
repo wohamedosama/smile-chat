@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/create_an_account_and_already_a_user_text_button.dart';
+import 'package:smile_chat/features/auth/presentation/widgets/custom_circle_progress_indicator.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/register_form_fields.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/constant.dart';
@@ -92,22 +93,6 @@ class RegisterContainer extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class CustomCircleProgressIndicator extends StatelessWidget {
-  const CustomCircleProgressIndicator({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 20),
-      child: CircularProgressIndicator(
-        color: AppColor.deepPurbleColor,
-      ),
     );
   }
 }

@@ -4,14 +4,18 @@ import 'package:smile_chat/features/auth/presentation/widgets/custom_text_button
 class ForgetPasswordTextButton extends StatelessWidget {
   const ForgetPasswordTextButton({
     super.key,
+    this.pressToNavigateToForgetPasswordScreen,
   });
-
+  final void Function()? pressToNavigateToForgetPasswordScreen;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        CustomTextButton(text: 'Forgot password?'),
+        CustomTextButton(
+          text: 'Forgot password?',
+          onPressed: pressToNavigateToForgetPasswordScreen,
+        ),
       ],
     );
   }
