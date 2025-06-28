@@ -8,12 +8,15 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: AppColor.whiteColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [CustomizeAutAppBar(isLoginPage: false), RegisterContainer()],
+        children: [
+          const CustomizeAutAppBar(isLoginPage: false),
+          RegisterContainer()
+        ],
       ),
     );
   }

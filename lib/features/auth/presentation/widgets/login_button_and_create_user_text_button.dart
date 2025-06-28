@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/auth_toggle_prompt.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/customize_button_to_login.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/login_text_child.dart';
-import 'package:smile_chat/utils/app_color.dart';
 
 class LoginButtonAndCreateUserTextButton extends StatelessWidget {
   const LoginButtonAndCreateUserTextButton({
@@ -11,12 +10,14 @@ class LoginButtonAndCreateUserTextButton extends StatelessWidget {
     required this.text,
     required this.customTextButtonText,
     required this.customTextwidgetText,
+    this.clickToNavigateToHomeScreen,
   });
 
   final void Function()? onPressedRegisterButton;
   final String text;
   final String customTextButtonText;
   final String customTextwidgetText;
+  final void Function()? clickToNavigateToHomeScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,14 @@ class LoginButtonAndCreateUserTextButton extends StatelessWidget {
       spacing: 50,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        CustomizeButtonToLogin(child: LoginTextChild(text: text)),
+        CustomizeButtonToLogin(
+          clickToNavigateToHomeScreen: clickToNavigateToHomeScreen,
+          child: LoginTextChild(text: text),
+        ),
         AuthTogglePrompt(
           customTextButtonText: customTextButtonText,
           customTextwidgetText: customTextwidgetText,
-          onPressed: onPressedRegisterButton,
+          pressToNaviagateToLoginScreen: onPressedRegisterButton,
         ),
       ],
     );

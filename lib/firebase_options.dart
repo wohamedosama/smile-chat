@@ -64,6 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '639932064883',
     projectId: 'smile-chat-7450d',
     storageBucket: 'smile-chat-7450d.firebasestorage.app',
+    androidClientId: '639932064883-2bf4ogbudm8udcn2su6mdc4hahrk7n2j.apps.googleusercontent.com',
+    iosClientId: '639932064883-5bjjqnn3qgpvg0rlhrjk382d6jfl2c2v.apps.googleusercontent.com',
     iosBundleId: 'com.example.smileChat',
   );
 
@@ -73,6 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '639932064883',
     projectId: 'smile-chat-7450d',
     storageBucket: 'smile-chat-7450d.firebasestorage.app',
+    androidClientId: '639932064883-2bf4ogbudm8udcn2su6mdc4hahrk7n2j.apps.googleusercontent.com',
+    iosClientId: '639932064883-5bjjqnn3qgpvg0rlhrjk382d6jfl2c2v.apps.googleusercontent.com',
     iosBundleId: 'com.example.smileChat',
   );
 
@@ -85,4 +89,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'smile-chat-7450d.firebasestorage.app',
     measurementId: 'G-7WH5PQ5RJC',
   );
+
 }

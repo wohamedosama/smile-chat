@@ -5,26 +5,26 @@ import 'package:smile_chat/utils/app_font_size.dart';
 import 'package:smile_chat/utils/app_images.dart';
 
 class OTPInputInstructions extends StatelessWidget {
-  OTPInputInstructions({
-    super.key,
-  });
-  final List<TextModel> model = [
-    TextModel(
-        text: 'Now,Enter 4 Digit OTP we sent to you',
-        style: AppStyles.styleMedium19,
-        maxLines: 2),
-    TextModel(
-        text: 'sent to +91 98745 63210',
-        style: AppStyles.stylelightWithLightPurbleColor16.copyWith(
-          color: const Color(0xffcccccc),
-        ),
-        maxLines: 2),
-    TextModel(
-        text: 'Use a different number',
-        style: AppStyles.stylelightWithLightPurbleColor16),
-  ];
+  const OTPInputInstructions({super.key, this.phoneNumber = ''});
+  final String phoneNumber;
+
   @override
   Widget build(BuildContext context) {
+    final List<TextModel> model = [
+      TextModel(
+          text: 'Now,Enter 4 Digit OTP we sent to you',
+          style: AppStyles.styleMedium19,
+          maxLines: 2),
+      TextModel(
+          text: 'sent to $phoneNumber',
+          style: AppStyles.stylelightWithLightPurbleColor16.copyWith(
+            color: const Color(0xffcccccc),
+          ),
+          maxLines: 2),
+      TextModel(
+          text: 'Use a different number',
+          style: AppStyles.stylelightWithLightPurbleColor16),
+    ];
     return Row(
       spacing: 80,
       children: [

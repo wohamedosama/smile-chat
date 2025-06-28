@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/auth_toggle_prompt.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/customize_button_to_register.dart';
-import 'package:smile_chat/features/auth/presentation/widgets/login_button_and_create_user_text_button.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/login_text_child.dart';
-import 'package:smile_chat/utils/app_color.dart';
 
 class CreateAnAccountAndAlreadyAUserTextButton extends StatelessWidget {
   const CreateAnAccountAndAlreadyAUserTextButton({
     this.onPressedRegisterButton,
+    this.pressToNaviagateToLoginScreen,
     super.key,
     required this.text,
     required this.customTextButtonText,
     required this.customTextwidgetText,
   });
 
+  final void Function()? pressToNaviagateToLoginScreen;
   final void Function()? onPressedRegisterButton;
   final String text;
   final String customTextButtonText;
@@ -25,11 +25,14 @@ class CreateAnAccountAndAlreadyAUserTextButton extends StatelessWidget {
       spacing: 50,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        CustomizeButtonToRegister(child: LoginTextChild(text: text)),
+        CustomizeButtonToRegister(
+          onPressedRegisterButton: onPressedRegisterButton,
+          child: LoginTextChild(text: text),
+        ),
         AuthTogglePrompt(
           customTextButtonText: customTextButtonText,
           customTextwidgetText: customTextwidgetText,
-          onPressed: onPressedRegisterButton,
+          pressToNaviagateToLoginScreen: pressToNaviagateToLoginScreen,
         ),
       ],
     );

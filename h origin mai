@@ -1,0 +1,365 @@
+[33mcommit 68c9febe35e0c07dc33bd05f14a7cc13b567ff2f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: f5b0953 1c37111
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Jun 9 12:31:56 2025 +0300
+
+     import all packages
+
+[33mcommit 1c371117e0d0326a596fc562db6effe5f222f7c3[m[33m ([m[1;32mchats[m[33m)[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Jun 9 12:27:39 2025 +0300
+
+    update pubspac.yaml
+
+[33mcommit 3156b06bfc49127812e3ebd832ab5030955480a9[m[33m ([m[1;31morigin/chats[m[33m)[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Jun 9 12:18:58 2025 +0300
+
+    edit logout screen to handle the pop button to get me to landing screen
+
+[33mcommit f5b0953c1686c9c79b2ababe705099e22fa220bc[m
+Merge: b1533c9 a1127d2
+Author: woahmedosmaa <97545898+wohamedosama@users.noreply.github.com>
+Date:   Mon Jun 9 12:15:01 2025 +0300
+
+    Merge pull request #4 from wohamedosama/chats
+    
+    End from UI Go to the Logic
+
+[33mcommit a1127d2a332264c7a705c455983fcedb705d7837[m
+Merge: 6151479 b1533c9
+Author: woahmedosmaa <97545898+wohamedosama@users.noreply.github.com>
+Date:   Mon Jun 9 12:14:30 2025 +0300
+
+    Merge branch 'main' into chats
+
+[33mcommit b1533c9f1183c025f5f2faa9e703437e0bee9d42[m
+Merge: f15b69c f108bb8
+Author: woahmedosmaa <97545898+wohamedosama@users.noreply.github.com>
+Date:   Mon Jun 9 11:55:58 2025 +0300
+
+    Merge pull request #2 from wohamedosama/auth
+    
+    Ennd from UI
+
+[33mcommit 615147926fe70b3ca2349a67527735df1dfbaf16[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Jun 9 11:40:33 2025 +0300
+
+    end from UI
+
+[33mcommit 178fdada749cb69115bc78ea0241bc5e5492599d[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu Jun 5 04:07:01 2025 +0300
+
+    solve the bubble chat continer and time text problem
+
+[33mcommit 42980257c0c128091f879dbd18a93828e3c30dbf[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu Jun 5 03:41:18 2025 +0300
+
+    handle modern error screen
+
+[33mcommit b2d26d08bde211765983873a8ded5859f1b0b26b[m[33m ([m[1;31morigin/home[m[33m, [m[1;32mhome[m[33m)[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sun May 18 21:15:53 2025 +0300
+
+    try to handle sorty and fins from some ui
+
+[33mcommit 3e4ce11b4e2b023791de925e8b44df9184ca895d[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sat May 17 17:11:21 2025 +0300
+
+    refactor call screen
+
+[33mcommit ad83ea53c8f366ebe7ffffb9fa0bda7280534d68[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sat May 17 17:00:52 2025 +0300
+
+    end from call screen
+
+[33mcommit 1b56bfa8afe94599c9fbebf758d10da70edeaa05[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu May 15 03:59:49 2025 +0300
+
+    refactor contacts screen and seperate it to many widgets like custom list tile and cliprrect container
+
+[33mcommit ee7e92fa97c56198479fcafcf852d15aa4328e42[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon May 12 04:03:56 2025 +0300
+
+    refactor settings items tile
+
+[33mcommit 7f404e103494d2caf61b02b20f3e9d37143522e8[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon May 12 03:54:10 2025 +0300
+
+    end from build profile screen
+
+[33mcommit e5948157d16dd5635f586a54f61db116b87dfce6[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri May 9 04:04:40 2025 +0300
+
+    navigate to profile screen
+
+[33mcommit f5084ce4e26101cb98555b69eb61daab1668428f[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri May 9 03:38:15 2025 +0300
+
+    end from search screen
+
+[33mcommit 9581a12b6d71a9b8f4497e011bf11027540638dd[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri May 9 03:32:09 2025 +0300
+
+    refactor search item and create sample model to manage the search item
+
+[33mcommit 50a42f38c64c5d1354f5de921a6c8782b53430c8[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu May 8 04:37:44 2025 +0300
+
+    create sample from search screen
+
+[33mcommit d830dd4601c9ff23ca9c75ba5db6627c2454d36d[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu May 8 03:51:43 2025 +0300
+
+    refactor the code
+
+[33mcommit 3474db6cfd0ff45fb27efd7ebab94d65931cdb0e[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu May 8 03:49:59 2025 +0300
+
+    add slidalbe to delete the chat and mute the notification
+
+[33mcommit 3fcc097c6b890c70897f03a012e064b7b8a8ea82[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Wed May 7 04:14:52 2025 +0300
+
+    add custom nav bar and create nav bar item
+
+[33mcommit a296248dc3f3ea019ddb0bc96d806ca1fcf22bcc[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon May 5 04:10:05 2025 +0300
+
+    create chat item container
+
+[33mcommit f3c3340e5bdbba986885764a30667597a9e7a933[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon May 5 04:07:56 2025 +0300
+
+    refactor the code and seperate the list of chat item to be in the seperate file
+
+[33mcommit 58b95f554d21773b5df2e237f2013f6157a0debc[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon May 5 04:00:38 2025 +0300
+
+    seperate each widget in the chat item to be readable
+
+[33mcommit e881a9afa77d8ff9f8ab825dc59e39c26fb0cca4[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon May 5 03:20:03 2025 +0300
+
+    create the model to handle chat model in the home screen and create chat home mdoel
+
+[33mcommit 5e10d4b7da6f52c494bc126d98d2bd342f13654e[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sun May 4 20:44:57 2025 +0300
+
+    refactor story item and sotry list view and create story model
+
+[33mcommit 5427b28e4a58ba3aae46825880dbb3d20fcf6312[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sun May 4 16:45:30 2025 +0300
+
+    end from stories item list
+
+[33mcommit ba28a39769126581f2c2031df3e2097faceb9254[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sun May 4 16:08:28 2025 +0300
+
+    customize app bar in home screen
+
+[33mcommit 070f9dcb16ceacbcbac13c21385926680ddcbd54[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sun May 4 00:37:08 2025 +0300
+
+    add router to router to homs screen and route to login and register screen
+
+[33mcommit bb78adfe9e2a7586d300b4a5a8963a68163e1e16[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Sun May 4 00:25:54 2025 +0300
+
+    add customize button to login and register and seperate every button to handle it
+
+[33mcommit ba192f0b5a9995ef61158cea8abf33897771bb2c[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Thu May 1 11:29:43 2025 +0300
+
+    make the widgets reusabe in the whole application
+
+[33mcommit 1bbf64865066b802d79165cb229098001f5b955c[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Wed Apr 30 11:42:01 2025 +0300
+
+    refactor the text form field
+
+[33mcommit fd788ffe198cae4af578a0147e91bb44c605ab66[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Wed Apr 30 11:26:56 2025 +0300
+
+     refector custom icon button
+
+[33mcommit 323fd88b73531147656534ae6a75bfa0cd2e85e8[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Wed Apr 30 11:09:12 2025 +0300
+
+    change setting to delete unused import auto
+
+[33mcommit d4b4594f05c0abc6aae3b3d98ba68df03ee5263d[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Wed Apr 30 10:46:47 2025 +0300
+
+    refacto the code and extract the login using mail id app bar widget in extrnal file
+
+[33mcommit 7cd8d0f4f738272bebc0cbb4a08b37f90db47c18[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Wed Apr 30 10:42:55 2025 +0300
+
+    end from login using email id screen
+
+[33mcommit 3f4e708a0198f17015c6d9456f97bbc4a2ce851b[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Tue Apr 29 03:46:11 2025 +0300
+
+    create login using mail id and add welcome text widget
+
+[33mcommit 2e2929fab8816a88cae29a120a6d7a2249a00681[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Tue Apr 29 03:19:24 2025 +0300
+
+    refecto pin code form field widget and you didn't receive the code widget|
+
+[33mcommit 4a843c016fe3c7618b7a2f1b54136d6a5da3f409[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Tue Apr 29 02:51:06 2025 +0300
+
+    add commond to analysis_options to apply const by default on the whole application
+
+[33mcommit be4c4bfb579f9de4712122b63b51e2d9d104eba0[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 28 04:55:37 2025 +0300
+
+    add bool to check if we neee the image or not in the app bar
+
+[33mcommit cd283fb73e7bc643f1744a1b253117398fcae3e8[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 28 04:49:42 2025 +0300
+
+    refactor the code terms and condidtions list and text form field
+
+[33mcommit c55f693ce24a0c46fe88e19b2ec36f807470cf72[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 28 03:43:17 2025 +0300
+
+    make the login using mobile number screen scroallable
+
+[33mcommit f108bb8b2ccb1c7bce3ae5d92559112f2e715feb[m[33m ([m[1;31morigin/auth[m[33m, [m[1;32mauth[m[33m)[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 28 01:44:15 2025 +0300
+
+     add the custom text widget in another file
+
+[33mcommit 9b6faee2e58cad438c39cb98213534943fd3c123[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 28 01:42:17 2025 +0300
+
+     refactor the app bar and text widget in the login using mobile scree
+
+[33mcommit 0ec05bdb870ed8f3b8365d349978a01044cfb97a[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri Apr 25 05:32:55 2025 +0300
+
+    end from get OTP screen
+
+[33mcommit 1b5a7b76a1af02255903a3fa8d7ead1cd591a7a8[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri Apr 25 05:25:42 2025 +0300
+
+    end from grt otp screen
+
+[33mcommit f15b69c0701121363cfc20bc1734a504455cd355[m
+Merge: 004ea78 ce4b038
+Author: woahmedosmaa <97545898+wohamedosama@users.noreply.github.com>
+Date:   Fri Apr 25 03:55:34 2025 +0300
+
+    Merge pull request #1 from wohamedosama/HEAD
+    
+    end from login using mobile number screen
+
+[33mcommit ce4b03870f5c6f2b6a4dfa90a3497cedf5c66dba[m
+Merge: 4d16aa3 004ea78
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri Apr 25 03:54:31 2025 +0300
+
+    Merge https://github.com/wohamedosama/smile-chat into auth
+
+[33mcommit 4d16aa3cd818ab65a93c1ac221079d179bdb1fd6[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri Apr 25 03:46:50 2025 +0300
+
+    end from login using mobile number screen
+
+[33mcommit 004ea78b6e352e3dcadb4c5cd6b3cc5d40e68c8b[m
+Author: DESKTOP-IA7BFTA\hp <mohamedmedo9932@gmail.com>
+Date:   Fri Apr 25 03:37:53 2025 +0300
+
+    end from Login using mobile number screen
+
+[33mcommit 978b1ae9875595208d3c1a946f3c18dc23c79f15[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 14 04:07:41 2025 +0200
+
+     create the safeArea to my project add the leading and trail
+
+[33mcommit 3c56517fd342d520580f9d4a09f82a45cceafa18[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 14 03:37:09 2025 +0200
+
+    create router and it to my main
+
+[33mcommit 7d84f9fa66982d22f3634906a2ff26f50948ba14[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 14 03:28:32 2025 +0200
+
+    refactor landing screen
+
+[33mcommit d1f179d8cb02160d39e475e87718fef9629de410[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 14 02:56:39 2025 +0200
+
+    refacto the code and create custom elevated button
+
+[33mcommit 083c41eec6be529410b9c0100cfe40c39b42309c[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Mon Apr 14 02:34:54 2025 +0200
+
+    end from landing screen
+
+[33mcommit 99f0b1092b2c3ee890f7d58fef4ec5ecf2ca0762[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Tue Apr 8 11:28:45 2025 +0200
+
+    add the assets and the text
+
+[33mcommit 70ebf0233a434b613158d5cc06211f377bff5d2d[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Fri Apr 4 12:09:19 2025 +0200
+
+    add the assets in the application and generate it
+
+[33mcommit b4530c3769b63668270c92a30a4dd7869192e44e[m
+Author: mohamed osama <mohamedmedo9932@gmail.com>
+Date:   Tue Mar 25 13:10:55 2025 +0200
+
+    project initiation
