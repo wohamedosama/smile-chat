@@ -2,6 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:smile_chat/utils/firebase_error_text/firebase_error_text.dart';
 
 part 'email_auth_state.dart';
@@ -131,9 +132,50 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     }
   }
 
+  Future<void> signInWithGoogle() async {
+    try {
+      emit(LoginUsingGoogleLoadingState());
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        emit(LoginUsingGoogleFailureState(
+            errorMessage: 'Sign in was cancelled by user'));
+        return;
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      if (googleAuth.accessToken == null || googleAuth.idToken == null) {
+        emit(LoginUsingGoogleFailureState(
+            errorMessage: 'Failed to obtain authentication details'));
+        return;
+      }
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+      final UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      if (userCredential.user != null) {
+        emit(LoginUsingGoogleSuccessState());
+      } else {
+        emit(LoginUsingGoogleFailureState(
+            errorMessage: 'Failed to sign in with Google'));
+      }
+    } on FirebaseAuthException catch (e) {
+      // Handle Firebase Auth specific errors
+      String errorMessage = FirebaseErrorUtils.getSignInErrorMessage(e.code);
+      emit(LoginUsingGoogleFailureState(errorMessage: errorMessage));
+    } catch (e) {
+      // Handle any other errors
+      emit(LoginUsingGoogleFailureState(
+          errorMessage: 'An unexpected error occurred: ${e.toString()}'));
+    }
+  }
+
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
+      GoogleSignIn().signOut();
       emit(LogoutSuccessStata());
     } catch (error) {
       emit(LogoutFailurestate(errorMessge: error.toString()));

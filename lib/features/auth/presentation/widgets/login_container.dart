@@ -34,6 +34,16 @@ class LoginContainer extends StatelessWidget {
           print('❌ Login failed: ${state.errorMessage}');
           MyToast.showToast(
               message: state.errorMessage.toString(), state: ToastState.failed);
+        } else if (state is LoginUsingGoogleSuccessState) {
+          print('✅ Welcome via Google');
+          //String userName = state.user?.displayName ?? 'User';
+          MyToast.showToast(message: 'Welcome ', state: ToastState.success);
+          const Duration(seconds: 2);
+          Navigator.pushReplacementNamed(context, homeScreen);
+        } else if (state is LoginUsingGoogleFailureState) {
+          print('❌ Google Login failed: ${state.errorMessage}');
+          MyToast.showToast(
+              message: state.errorMessage, state: ToastState.failed);
         }
       },
       builder: (context, state) {
@@ -50,7 +60,14 @@ class LoginContainer extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       //! login using google button
-                      CustomIconButton(onPressed: () {}),
+                      CustomIconButton(
+                        onPressed: (state is LoginUsingGoogleLoadingState)
+                            ? null // Disable button when loading
+                            : () {
+                                BlocProvider.of<EmailAuthCubit>(context)
+                                    .signInWithGoogle();
+                              },
+                      ),
                       const SizedBox(height: 40),
                       CustomDivider(style: AppStyles.styleExtraBold16),
                       const SizedBox(height: 40),
@@ -82,8 +99,9 @@ class LoginContainer extends StatelessWidget {
                           password.clear();
                         },
                       ),
-                      if (state is LoginUsingEmailLoadingState)
-                        const CustomCircleProgressIndicator(),
+                      if (state is LoginUsingEmailLoadingState ||
+                          state is LoginUsingGoogleLoadingState)
+                        const CustomCircleProgressIndicator()
                     ],
                   ),
                 ),

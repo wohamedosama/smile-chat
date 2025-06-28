@@ -80,7 +80,7 @@ class RegisterContainer extends StatelessWidget {
                                         confirmPassword.text.trim(),
                                       );
                                     }
-                                    formkey.currentState!.reset();
+                                    // formkey.currentState!.reset();
                                   },
                       ),
                       if (state is CreateNewUserUsingEmailLoadingState)

@@ -32,6 +32,15 @@ final class ResetPasswordUsingEmailFailureState extends EmailAuthState {
   ResetPasswordUsingEmailFailureState({required this.errorMessage});
 }
 
+final class LoginUsingGoogleLoadingState extends EmailAuthState {}
+
+final class LoginUsingGoogleSuccessState extends EmailAuthState {}
+
+final class LoginUsingGoogleFailureState extends EmailAuthState {
+  final String errorMessage;
+  LoginUsingGoogleFailureState({required this.errorMessage});
+}
+
 final class LogoutSuccessStata extends EmailAuthState {}
 
 final class LogoutFailurestate extends EmailAuthState {
