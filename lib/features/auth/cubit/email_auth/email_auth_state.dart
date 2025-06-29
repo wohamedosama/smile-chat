@@ -1,50 +1,86 @@
 part of 'email_auth_cubit.dart';
 
 @immutable
-sealed class EmailAuthState {}
+class EmailAuthState extends Equatable {
+  final bool? isCreateNewUserUsingEmailLoading;
+  final bool? isLoginUsingEmailLoading;
+  final bool? isResetPasswordUsingEmailLoading;
+  final bool? isLoginUsingGoogleLoading;
+  final bool? isCreateNewUserUsingEmailSuccess;
+  final bool? isLoginUsingEmailSuccess;
+  final bool? isResetPasswordUsingEmailSuccess;
+  final bool? isLoginUsingGoogleSuccess;
+  final String? isCreateNewUserUsingEmailFailure;
+  final String? isLoginUsingEmailFailure;
+  final String? isResetPasswordUsingEmailFailure;
+  final String? isLoginUsingGoogleFailure;
 
-final class EmailAuthInitial extends EmailAuthState {}
+  const EmailAuthState({
+    this.isCreateNewUserUsingEmailLoading = false,
+    this.isLoginUsingEmailLoading = false,
+    this.isResetPasswordUsingEmailLoading = false,
+    this.isLoginUsingGoogleLoading = false,
+    this.isCreateNewUserUsingEmailSuccess = false,
+    this.isLoginUsingEmailSuccess = false,
+    this.isResetPasswordUsingEmailSuccess = false,
+    this.isLoginUsingGoogleSuccess = false,
+    this.isCreateNewUserUsingEmailFailure,
+    this.isLoginUsingEmailFailure,
+    this.isResetPasswordUsingEmailFailure,
+    this.isLoginUsingGoogleFailure,
+  });
 
-final class CreateNewUserUsingEmailLoadingState extends EmailAuthState {}
+  @override
+  List<Object?> get props => [
+        isCreateNewUserUsingEmailLoading,
+        isLoginUsingEmailLoading,
+        isResetPasswordUsingEmailLoading,
+        isLoginUsingGoogleLoading,
+        isCreateNewUserUsingEmailSuccess,
+        isLoginUsingEmailSuccess,
+        isResetPasswordUsingEmailSuccess,
+        isLoginUsingGoogleSuccess,
+        isCreateNewUserUsingEmailFailure,
+        isLoginUsingEmailFailure,
+        isResetPasswordUsingEmailFailure,
+        isLoginUsingGoogleFailure,
+      ];
 
-final class CreateNewUserUsingEmailSuccessState extends EmailAuthState {}
-
-final class CreateNewUserUsingEmailFailureState extends EmailAuthState {
-  final String errorMessage;
-  CreateNewUserUsingEmailFailureState({required this.errorMessage});
-}
-
-final class LoginUsingEmailLoadingState extends EmailAuthState {}
-
-final class LoginUsingEmailSuccessState extends EmailAuthState {}
-
-final class LoginUsingEmailFailureState extends EmailAuthState {
-  final String errorMessage;
-  LoginUsingEmailFailureState({required this.errorMessage});
-}
-
-final class ResetPasswordUsingEmailLoadingState extends EmailAuthState {}
-
-final class ResetPasswordUsingEmailSuccessState extends EmailAuthState {}
-
-final class ResetPasswordUsingEmailFailureState extends EmailAuthState {
-  final String errorMessage;
-  ResetPasswordUsingEmailFailureState({required this.errorMessage});
-}
-
-final class LoginUsingGoogleLoadingState extends EmailAuthState {}
-
-final class LoginUsingGoogleSuccessState extends EmailAuthState {}
-
-final class LoginUsingGoogleFailureState extends EmailAuthState {
-  final String errorMessage;
-  LoginUsingGoogleFailureState({required this.errorMessage});
-}
-
-final class LogoutSuccessStata extends EmailAuthState {}
-
-final class LogoutFailurestate extends EmailAuthState {
-  final String errorMessge;
-
-  LogoutFailurestate({required this.errorMessge});
+  EmailAuthState copyWith({
+    bool? isCreateNewUserUsingEmailLoading,
+    bool? isLoginUsingEmailLoading,
+    bool? isResetPasswordUsingEmailLoading,
+    bool? isLoginUsingGoogleLoading,
+    bool? isCreateNewUserUsingEmailSuccess,
+    bool? isLoginUsingEmailSuccess,
+    bool? isResetPasswordUsingEmailSuccess,
+    bool? isLoginUsingGoogleSuccess,
+    String? isCreateNewUserUsingEmailFailure,
+    String? isLoginUsingEmailFailure,
+    String? isResetPasswordUsingEmailFailure,
+    String? isLoginUsingGoogleFailure,
+  }) {
+    return EmailAuthState(
+      isCreateNewUserUsingEmailLoading: isCreateNewUserUsingEmailLoading ??
+          this.isCreateNewUserUsingEmailLoading,
+      isLoginUsingEmailLoading:
+          isLoginUsingEmailLoading ?? this.isLoginUsingEmailLoading,
+      isResetPasswordUsingEmailLoading: isResetPasswordUsingEmailLoading ??
+          this.isResetPasswordUsingEmailLoading,
+      isLoginUsingGoogleLoading:
+          isLoginUsingGoogleLoading ?? this.isLoginUsingGoogleLoading,
+      isCreateNewUserUsingEmailSuccess: isCreateNewUserUsingEmailSuccess ??
+          this.isCreateNewUserUsingEmailSuccess,
+      isLoginUsingEmailSuccess:
+          isLoginUsingEmailSuccess ?? this.isLoginUsingEmailSuccess,
+      isResetPasswordUsingEmailSuccess: isResetPasswordUsingEmailSuccess ??
+          this.isResetPasswordUsingEmailSuccess,
+      isLoginUsingGoogleSuccess:
+          isLoginUsingGoogleSuccess ?? this.isLoginUsingGoogleSuccess,
+      isCreateNewUserUsingEmailFailure: isCreateNewUserUsingEmailFailure,
+      isLoginUsingEmailFailure: isLoginUsingEmailFailure,
+      isResetPasswordUsingEmailFailure: isResetPasswordUsingEmailFailure,
+      isLoginUsingGoogleFailure: isLoginUsingGoogleFailure,
+    );
+  }
 }

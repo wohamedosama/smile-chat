@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -8,7 +9,7 @@ import 'package:smile_chat/utils/firebase_error_text/firebase_error_text.dart';
 part 'email_auth_state.dart';
 
 class EmailAuthCubit extends Cubit<EmailAuthState> {
-  EmailAuthCubit() : super(EmailAuthInitial());
+  EmailAuthCubit() : super(const EmailAuthState());
 
   bool isPasswordConfimred(String password, String confirmPassword) {
     return password == confirmPassword;
@@ -41,52 +42,66 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     String confirmPassword,
   ) async {
     try {
-      emit(CreateNewUserUsingEmailLoadingState());
+      emit(state.copyWith(
+        isCreateNewUserUsingEmailLoading: true,
+        isCreateNewUserUsingEmailSuccess: false,
+      ));
 
       if (!validateUsername(userName)) {
-        emit(CreateNewUserUsingEmailFailureState(
-          errorMessage:
+        emit(state.copyWith(
+          isCreateNewUserUsingEmailLoading: false,
+          isCreateNewUserUsingEmailFailure:
               'Username must be at least 2 characters and contain only letters, numbers, underscore, or hyphen',
         ));
         return;
       }
 
       if (!validateEmail(email)) {
-        emit(CreateNewUserUsingEmailFailureState(
-          errorMessage:
+        emit(state.copyWith(
+          isCreateNewUserUsingEmailLoading: false,
+          isCreateNewUserUsingEmailFailure:
               FirebaseErrorUtils.getRegistrationErrorMessage('invalid-email'),
         ));
         return;
       }
       if (!validatePassword(password)) {
-        emit(CreateNewUserUsingEmailFailureState(
-          errorMessage:
+        emit(state.copyWith(
+          isCreateNewUserUsingEmailLoading: false,
+          isCreateNewUserUsingEmailFailure:
               FirebaseErrorUtils.getRegistrationErrorMessage('weak-password'),
         ));
-        return; // Important: return to stop execution
+        return;
       }
 
       // Validate password confirmation
       if (!isPasswordConfimred(password, confirmPassword)) {
-        emit(CreateNewUserUsingEmailFailureState(
-          errorMessage: 'Passwords do not match',
+        emit(state.copyWith(
+          isCreateNewUserUsingEmailLoading: false,
+          isCreateNewUserUsingEmailFailure: 'Passwords do not match',
         ));
-        return; // Important: return to stop execution
+        return;
       }
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email.trim(),
         password: password,
       );
-      emit(CreateNewUserUsingEmailSuccessState());
+      emit(state.copyWith(
+        isCreateNewUserUsingEmailLoading: false,
+        isCreateNewUserUsingEmailSuccess: true,
+      ));
     } on FirebaseAuthException catch (error) {
       String errorMessage =
           FirebaseErrorUtils.getRegistrationErrorMessage(error.code);
       print('❌ Firebase Auth Error: ${error.code} - ${error.message}');
-      emit(CreateNewUserUsingEmailFailureState(errorMessage: errorMessage));
+      emit(state.copyWith(
+        isCreateNewUserUsingEmailLoading: false,
+        isCreateNewUserUsingEmailFailure: errorMessage,
+      ));
     } catch (error) {
       print('❌ Unexpected error occurred: $error');
-      emit(CreateNewUserUsingEmailFailureState(
-        errorMessage:
+      emit(state.copyWith(
+        isCreateNewUserUsingEmailLoading: false,
+        isCreateNewUserUsingEmailFailure:
             FirebaseErrorUtils.getRegistrationErrorMessage('internal-error'),
       ));
     }
@@ -95,19 +110,28 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
   Future<void> loginUsingMail(
       {required String email, required String password}) async {
     try {
-      emit(LoginUsingEmailLoadingState());
+      emit(state.copyWith(
+        isLoginUsingEmailLoading: true,
+        isLoginUsingEmailSuccess: false,
+      ));
+
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      emit(LoginUsingEmailSuccessState());
+      emit(state.copyWith(
+        isLoginUsingEmailLoading: false,
+        isLoginUsingEmailSuccess: true,
+      ));
     } on FirebaseAuthException catch (error) {
-      String errorMessage =
-          FirebaseErrorUtils.getSignInErrorMessage(error.code);
       print('❌ Firebase Auth Error: ${error.code} - ${error.message}');
-      emit(LoginUsingEmailFailureState(errorMessage: errorMessage));
+      emit(state.copyWith(
+        isLoginUsingEmailLoading: false,
+        isLoginUsingEmailSuccess: true,
+      ));
     } catch (error) {
       print('❌ Unexpected error occurred: $error');
-      emit(LoginUsingEmailFailureState(
-        errorMessage:
+      emit(state.copyWith(
+        isLoginUsingEmailLoading: false,
+        isLoginUsingEmailFailure:
             FirebaseErrorUtils.getSignInErrorMessage('internal-error'),
       ));
     }
@@ -115,18 +139,28 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
 
   Future<void> resetPassword(String email) async {
     try {
-      emit(ResetPasswordUsingEmailLoadingState());
+      emit(state.copyWith(
+        isResetPasswordUsingEmailLoading: true,
+        isResetPasswordUsingEmailSuccess: false,
+      ));
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      emit(ResetPasswordUsingEmailSuccessState());
+      emit(state.copyWith(
+        isResetPasswordUsingEmailLoading: false,
+        isResetPasswordUsingEmailSuccess: true,
+      ));
     } on FirebaseAuthException catch (error) {
       String errorMessage =
           FirebaseErrorUtils.getPasswordResetErrorMessage(error.code);
       print('❌ Firebase Auth Error: ${error.code} - ${error.message}');
-      emit(ResetPasswordUsingEmailFailureState(errorMessage: errorMessage));
+      emit(state.copyWith(
+        isResetPasswordUsingEmailLoading: false,
+        isResetPasswordUsingEmailFailure: errorMessage,
+      ));
     } catch (error) {
       print('❌ Unexpected error occurred: $error');
-      emit(ResetPasswordUsingEmailFailureState(
-        errorMessage:
+      emit(state.copyWith(
+        isResetPasswordUsingEmailLoading: false,
+        isResetPasswordUsingEmailFailure:
             FirebaseErrorUtils.getPasswordResetErrorMessage('internal-error'),
       ));
     }
@@ -134,19 +168,27 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
 
   Future<void> signInWithGoogle() async {
     try {
-      emit(LoginUsingGoogleLoadingState());
+      emit(state.copyWith(
+        isLoginUsingGoogleLoading: true,
+        isLoginUsingGoogleSuccess: false,
+      ));
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       if (googleUser == null) {
-        emit(LoginUsingGoogleFailureState(
-            errorMessage: 'Sign in was cancelled by user'));
+        emit(state.copyWith(
+          isLoginUsingGoogleLoading: false,
+          isLoginUsingGoogleFailure: 'Sign in was cancelled by user',
+        ));
+
         return;
       }
 
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;
       if (googleAuth.accessToken == null || googleAuth.idToken == null) {
-        emit(LoginUsingGoogleFailureState(
-            errorMessage: 'Failed to obtain authentication details'));
+        emit(state.copyWith(
+          isLoginUsingGoogleLoading: false,
+          isLoginUsingGoogleFailure: 'Failed to obtain authentication details',
+        ));
         return;
       }
       final credential = GoogleAuthProvider.credential(
@@ -156,29 +198,42 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
       final UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
       if (userCredential.user != null) {
-        emit(LoginUsingGoogleSuccessState());
+        emit(state.copyWith(
+          isLoginUsingGoogleLoading: false,
+          isLoginUsingGoogleSuccess: true,
+        ));
       } else {
-        emit(LoginUsingGoogleFailureState(
-            errorMessage: 'Failed to sign in with Google'));
+        emit(state.copyWith(
+          isLoginUsingGoogleLoading: false,
+          isLoginUsingGoogleFailure: 'Failed to sign in with Google',
+        ));
       }
     } on FirebaseAuthException catch (e) {
       // Handle Firebase Auth specific errors
       String errorMessage = FirebaseErrorUtils.getSignInErrorMessage(e.code);
-      emit(LoginUsingGoogleFailureState(errorMessage: errorMessage));
+      emit(state.copyWith(
+        isLoginUsingGoogleLoading: false,
+        isLoginUsingGoogleFailure: errorMessage,
+      ));
     } catch (e) {
-      // Handle any other errors
-      emit(LoginUsingGoogleFailureState(
-          errorMessage: 'An unexpected error occurred: ${e.toString()}'));
+      emit(state.copyWith(
+        isLoginUsingGoogleLoading: false,
+        isLoginUsingGoogleFailure:
+            'An unexpected error occurred: ${e.toString()}',
+      ));
     }
   }
 
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut();
-      GoogleSignIn().signOut();
-      emit(LogoutSuccessStata());
+      await GoogleSignIn().signOut();
+
+      // Reset all state to initial values after logout
+      emit(const EmailAuthState());
     } catch (error) {
-      emit(LogoutFailurestate(errorMessge: error.toString()));
+      // You might want to add logout failure state to your EmailAuthState
+      print('❌ Logout error: $error');
     }
   }
 }

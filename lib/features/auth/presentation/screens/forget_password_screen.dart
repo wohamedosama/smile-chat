@@ -21,16 +21,18 @@ class ForgetPasswordScreen extends StatelessWidget {
 
     return BlocConsumer<EmailAuthCubit, EmailAuthState>(
       listener: (context, state) async {
-        if (state is ResetPasswordUsingEmailSuccessState) {
+        if (state.isResetPasswordUsingEmailSuccess == true) {
           print('✅ Mail sent successfully');
           const Duration(seconds: 7);
           MyToast.showToast(
               message: 'Mail sent successfully', state: ToastState.success);
           Navigator.popAndPushNamed(context, loginUsingEmail);
-        } else if (state is ResetPasswordUsingEmailFailureState) {
-          print('❌ We faced an error while sent email : ${state.errorMessage}');
+        } else if (state.isResetPasswordUsingEmailFailure != null) {
+          print(
+              '❌ We faced an error while sent email : ${state.isResetPasswordUsingEmailFailure}');
           MyToast.showToast(
-              message: state.errorMessage.toString(), state: ToastState.failed);
+              message: state.isResetPasswordUsingEmailFailure.toString(),
+              state: ToastState.failed);
         }
       },
       builder: (context, state) {
@@ -72,7 +74,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                       style: AppStyles.styleMediam14,
                     ),
                   ),
-                  if (state is LoginUsingEmailLoadingState)
+                  if (state.isLoginUsingEmailLoading == true)
                     const CustomCircleProgressIndicator(),
                 ],
               ),

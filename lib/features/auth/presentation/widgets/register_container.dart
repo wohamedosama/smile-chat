@@ -24,17 +24,19 @@ class RegisterContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<EmailAuthCubit, EmailAuthState>(
       listener: (context, state) async {
-        if (state is CreateNewUserUsingEmailSuccessState) {
+        if (state.isCreateNewUserUsingEmailSuccess == true) {
           print('✅ User Created successful');
           MyToast.showToast(
               message: 'User Created Successful', state: ToastState.success);
           const Duration(seconds: 2);
 
           Navigator.pushReplacementNamed(context, loginUsingEmail);
-        } else if (state is CreateNewUserUsingEmailFailureState) {
-          print('❌ Registration failed: ${state.errorMessage}');
+        } else if (state.isCreateNewUserUsingEmailFailure != null) {
+          print(
+              '❌ Registration failed: ${state.isCreateNewUserUsingEmailFailure}');
           MyToast.showToast(
-              message: state.errorMessage.toString(), state: ToastState.failed);
+              message: state.isCreateNewUserUsingEmailFailure.toString(),
+              state: ToastState.failed);
         }
       },
       builder: (context, state) {
@@ -64,11 +66,11 @@ class RegisterContainer extends StatelessWidget {
                                 .pushReplacementNamed(loginUsingEmail),
                         customTextButtonText: 'Sign in',
                         customTextwidgetText: 'Already a user ?',
-                        text: state is CreateNewUserUsingEmailLoadingState
+                        text: state.isCreateNewUserUsingEmailLoading == true
                             ? 'Creating...'
                             : 'Create an account',
                         onPressedRegisterButton:
-                            state is CreateNewUserUsingEmailLoadingState
+                            state.isCreateNewUserUsingEmailLoading == true
                                 ? null // Disable button during loading
                                 : () {
                                     if (formkey.currentState!.validate()) {
@@ -83,7 +85,7 @@ class RegisterContainer extends StatelessWidget {
                                     // formkey.currentState!.reset();
                                   },
                       ),
-                      if (state is CreateNewUserUsingEmailLoadingState)
+                      if (state.isCreateNewUserUsingEmailLoading == true)
                         const CustomCircleProgressIndicator(),
                     ],
                   ),

@@ -25,25 +25,27 @@ class LoginContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<EmailAuthCubit, EmailAuthState>(
       listener: (context, state) {
-        if (state is LoginUsingEmailSuccessState) {
+        if (state.isLoginUsingEmailSuccess == true) {
           print('✅ Welcome ');
           MyToast.showToast(message: 'Welcome', state: ToastState.success);
           const Duration(seconds: 2);
           Navigator.pushReplacementNamed(context, homeScreen);
-        } else if (state is LoginUsingEmailFailureState) {
-          print('❌ Login failed: ${state.errorMessage}');
+        } else if (state.isLoginUsingEmailFailure != null) {
+          print('❌ Login failed: ${state.isLoginUsingEmailFailure}');
           MyToast.showToast(
-              message: state.errorMessage.toString(), state: ToastState.failed);
-        } else if (state is LoginUsingGoogleSuccessState) {
+              message: state.isLoginUsingEmailFailure!.toString(),
+              state: ToastState.failed);
+        } else if (state.isLoginUsingGoogleSuccess == true) {
           print('✅ Welcome via Google');
           //String userName = state.user?.displayName ?? 'User';
           MyToast.showToast(message: 'Welcome ', state: ToastState.success);
           const Duration(seconds: 2);
           Navigator.pushReplacementNamed(context, homeScreen);
-        } else if (state is LoginUsingGoogleFailureState) {
-          print('❌ Google Login failed: ${state.errorMessage}');
+        } else if (state.isLoginUsingGoogleFailure != null) {
+          print('❌ Google Login failed: ${state.isLoginUsingGoogleFailure}');
           MyToast.showToast(
-              message: state.errorMessage, state: ToastState.failed);
+              message: state.isLoginUsingGoogleFailure!.toString(),
+              state: ToastState.failed);
         }
       },
       builder: (context, state) {
@@ -61,7 +63,7 @@ class LoginContainer extends StatelessWidget {
                     children: [
                       //! login using google button
                       CustomIconButton(
-                        onPressed: (state is LoginUsingGoogleLoadingState)
+                        onPressed: (state.isLoginUsingGoogleLoading == true)
                             ? null // Disable button when loading
                             : () {
                                 BlocProvider.of<EmailAuthCubit>(context)
@@ -80,7 +82,7 @@ class LoginContainer extends StatelessWidget {
                       ),
                       const SizedBox(height: 50),
                       LoginButtonAndCreateUserTextButton(
-                        text: state is LoginUsingEmailLoadingState
+                        text: state.isLoginUsingEmailLoading == true
                             ? 'Loading'
                             : 'Log In',
                         customTextButtonText: 'Register',
@@ -99,8 +101,8 @@ class LoginContainer extends StatelessWidget {
                           password.clear();
                         },
                       ),
-                      if (state is LoginUsingEmailLoadingState ||
-                          state is LoginUsingGoogleLoadingState)
+                      if (state.isLoginUsingEmailLoading == true ||
+                          state.isLoginUsingGoogleLoading == true)
                         const CustomCircleProgressIndicator()
                     ],
                   ),
