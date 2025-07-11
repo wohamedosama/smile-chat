@@ -10,7 +10,7 @@ part 'email_auth_state.dart';
 
 class EmailAuthCubit extends Cubit<EmailAuthState> {
   EmailAuthCubit() : super(const EmailAuthState());
-
+//? don't forget add visible your password and toogle between shown password or not
   bool isPasswordConfimred(String password, String confirmPassword) {
     return password == confirmPassword;
   }
@@ -201,6 +201,7 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
         emit(state.copyWith(
           isLoginUsingGoogleLoading: false,
           isLoginUsingGoogleSuccess: true,
+          isEmailVerified: true,
         ));
       } else {
         emit(state.copyWith(
@@ -228,12 +229,37 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
     try {
       await FirebaseAuth.instance.signOut();
       await GoogleSignIn().signOut();
-
-      // Reset all state to initial values after logout
       emit(const EmailAuthState());
     } catch (error) {
-      // You might want to add logout failure state to your EmailAuthState
       print('❌ Logout error: $error');
+    }
+  }
+
+  Future<void> sendEmailVerification() async {
+    try {
+      final isEmailVerified = FirebaseAuth.instance.currentUser?.emailVerified;
+      if (isEmailVerified == true) {
+        emit(state.copyWith(
+          isEmailVerificationSuccess: true,
+          isEmailVerificationLoading: false,
+        ));
+      } else {
+        emit(state.copyWith(
+            isEmailVerificationLoading: true,
+            isEmailVerificationSuccess: false));
+        await FirebaseAuth.instance.currentUser?.sendEmailVerification();
+        emit(state.copyWith(
+            isEmailVerificationLoading: false,
+            isEmailVerificationSuccess: true));
+      }
+    } on FirebaseAuthException catch (error) {
+      print('❌ Firebase Auth Error:  - ${error.message.toString()}');
+      emit(
+        state.copyWith(
+            isEmailVerificationLoading: false,
+            isEmailVerificationSuccess: false,
+            emailVerificationFailure: error.toString()),
+      );
     }
   }
 }

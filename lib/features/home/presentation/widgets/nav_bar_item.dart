@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:smile_chat/features/home/presentation/screens/all_chat_screen.dart';
+import 'package:smile_chat/features/home/presentation/screens/all_chats_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/calls_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/contacts_screen.dart';
 import 'package:smile_chat/utils/app_color.dart';
@@ -33,7 +33,7 @@ class NavBarItem {
   ];
 
   static List<Widget> screens = const [
-    AllChatScreen(),
+    AllChatsScreen(),
     ContactsScreen(),
     CallsScreen(),
   ];

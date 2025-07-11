@@ -14,6 +14,7 @@ class CustomTextFromField extends StatelessWidget {
     this.controller,
     this.validator,
     this.isPassword = false,
+    this.onFieldSubmitted,
     this.keyboardType = TextInputType.text,
   });
   final String labelText;
@@ -26,9 +27,11 @@ class CustomTextFromField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool isPassword;
   final TextInputType keyboardType;
+  final void Function(String)? onFieldSubmitted;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onFieldSubmitted: onFieldSubmitted,
       keyboardType: keyboardType,
       obscureText: isPassword,
       validator: validator,

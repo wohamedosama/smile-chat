@@ -14,8 +14,12 @@ class EmailAuthState extends Equatable {
   final String? isLoginUsingEmailFailure;
   final String? isResetPasswordUsingEmailFailure;
   final String? isLoginUsingGoogleFailure;
-
+  final bool? isEmailVerified;
+  final bool? isEmailVerificationSuccess;
+  final String? emailVerificationFailure;
+  final bool? isEmailVerificationLoading;
   const EmailAuthState({
+    this.isEmailVerificationLoading = false,
     this.isCreateNewUserUsingEmailLoading = false,
     this.isLoginUsingEmailLoading = false,
     this.isResetPasswordUsingEmailLoading = false,
@@ -28,10 +32,14 @@ class EmailAuthState extends Equatable {
     this.isLoginUsingEmailFailure,
     this.isResetPasswordUsingEmailFailure,
     this.isLoginUsingGoogleFailure,
+    this.isEmailVerified = false,
+    this.isEmailVerificationSuccess = false,
+    this.emailVerificationFailure,
   });
 
   @override
   List<Object?> get props => [
+        isEmailVerificationLoading,
         isCreateNewUserUsingEmailLoading,
         isLoginUsingEmailLoading,
         isResetPasswordUsingEmailLoading,
@@ -44,9 +52,15 @@ class EmailAuthState extends Equatable {
         isLoginUsingEmailFailure,
         isResetPasswordUsingEmailFailure,
         isLoginUsingGoogleFailure,
+        isEmailVerified,
+        isEmailVerificationSuccess,
+        emailVerificationFailure,
       ];
 
   EmailAuthState copyWith({
+    bool? isEmailVerificationLoading,
+    bool? isEmailVerified,
+    bool? isEmailVerificationSuccess,
     bool? isCreateNewUserUsingEmailLoading,
     bool? isLoginUsingEmailLoading,
     bool? isResetPasswordUsingEmailLoading,
@@ -59,8 +73,16 @@ class EmailAuthState extends Equatable {
     String? isLoginUsingEmailFailure,
     String? isResetPasswordUsingEmailFailure,
     String? isLoginUsingGoogleFailure,
+    String? emailVerificationFailure,
   }) {
     return EmailAuthState(
+      isEmailVerificationLoading:
+          isEmailVerificationLoading ?? this.isEmailVerificationLoading,
+      emailVerificationFailure:
+          emailVerificationFailure ?? this.emailVerificationFailure,
+      isEmailVerified: isEmailVerified ?? this.isEmailVerified,
+      isEmailVerificationSuccess:
+          isEmailVerificationSuccess ?? this.isEmailVerificationSuccess,
       isCreateNewUserUsingEmailLoading: isCreateNewUserUsingEmailLoading ??
           this.isCreateNewUserUsingEmailLoading,
       isLoginUsingEmailLoading:

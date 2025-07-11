@@ -5,8 +5,8 @@ import 'package:smile_chat/features/home/presentation/widgets/stories_list_view.
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/constant.dart';
 
-class AllChatScreen extends StatelessWidget {
-  const AllChatScreen({super.key});
+class AllChatsScreen extends StatelessWidget {
+  const AllChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

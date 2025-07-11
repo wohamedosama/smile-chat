@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_chat/features/auth/cubit/email_auth/email_auth_cubit.dart';
@@ -74,7 +73,17 @@ class LoginContainer extends StatelessWidget {
                       CustomDivider(style: AppStyles.styleExtraBold16),
                       const SizedBox(height: 40),
                       EmailAndPasswordLoginFormFields(
-                          email: email, password: password),
+                          onPasswordFieldSubmitted: (value) {
+                            if (formKey.currentState!.validate()) {
+                              BlocProvider.of<EmailAuthCubit>(context)
+                                  .loginUsingMail(
+                                      email: email.text.trim(),
+                                      password: password.text);
+                            }
+                            password.clear();
+                          },
+                          email: email,
+                          password: password),
                       ForgetPasswordTextButton(
                         pressToNavigateToForgetPasswordScreen: () {
                           Navigator.pushNamed(context, forgetPasswordScreen);

@@ -9,3 +9,4 @@ const String storyViewedScreen = '/storyViewScreen';
 const String chatsScreen = '/chatsScreen';
 const String forgetPasswordScreen = '/forgetPasswordScreen';
 const String landingScreen = '/';
+const String storiesCollection = 'stories';

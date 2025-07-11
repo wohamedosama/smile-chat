@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_chat/features/home/model/story_model.dart';
+import 'package:smile_chat/features/home/model/status_model.dart';
 import 'package:smile_chat/utils/app_color.dart';
 import 'package:smile_chat/utils/app_font_size.dart';
 
