@@ -16,6 +16,7 @@ class CustomTextFromField extends StatelessWidget {
     this.isPassword = false,
     this.onFieldSubmitted,
     this.keyboardType = TextInputType.text,
+    this.suffixIcon,
   });
   final String labelText;
   final TextStyle? labelStyle;
@@ -28,6 +29,7 @@ class CustomTextFromField extends StatelessWidget {
   final bool isPassword;
   final TextInputType keyboardType;
   final void Function(String)? onFieldSubmitted;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -39,6 +41,7 @@ class CustomTextFromField extends StatelessWidget {
       style: textFormFieldStyle ?? AppStyles.styleRegularWithWhiteColor16,
       cursorColor: AppColor.whiteColor,
       decoration: InputDecoration(
+        suffixIcon: suffixIcon,
         labelText: labelText,
         labelStyle: labelStyle ?? AppStyles.styleRegularWithWhiteColor16,
         enabledBorder: UnderlineInputBorder(

@@ -10,7 +10,7 @@ part 'email_auth_state.dart';
 
 class EmailAuthCubit extends Cubit<EmailAuthState> {
   EmailAuthCubit() : super(const EmailAuthState());
-//? don't forget add visible your password and toogle between shown password or not
+
   bool isPasswordConfimred(String password, String confirmPassword) {
     return password == confirmPassword;
   }
@@ -261,5 +261,16 @@ class EmailAuthCubit extends Cubit<EmailAuthState> {
             emailVerificationFailure: error.toString()),
       );
     }
+  }
+
+  IconData suffix = Icons.visibility_off_outlined;
+  bool isPassword = true;
+
+  void changePasswordVisibility() {
+    isPassword = !isPassword;
+    suffix =
+        isPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
+    emit(state.copyWith(
+        changePasswordVisibility: !state.changePasswordVisibility!));
   }
 }

@@ -7,10 +7,14 @@ class EmailAndPasswordLoginFormFields extends StatelessWidget {
     required this.email,
     required this.password,
     this.onPasswordFieldSubmitted,
+    this.isPassword = false,
+    this.suffixIcon,
   });
   final TextEditingController email;
   final TextEditingController password;
   final void Function(String)? onPasswordFieldSubmitted;
+  final bool isPassword;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -30,7 +34,7 @@ class EmailAndPasswordLoginFormFields extends StatelessWidget {
         ),
         const SizedBox(height: 40),
         CustomTextFromField(
-          isPassword: true,
+          isPassword: isPassword,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Password is required';
@@ -42,6 +46,7 @@ class EmailAndPasswordLoginFormFields extends StatelessWidget {
           labelText: 'Password',
           controller: password,
           onFieldSubmitted: onPasswordFieldSubmitted,
+          suffixIcon: suffixIcon,
         ),
         const SizedBox(height: 14),
       ],

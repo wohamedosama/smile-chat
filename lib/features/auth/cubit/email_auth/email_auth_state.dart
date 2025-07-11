@@ -18,7 +18,9 @@ class EmailAuthState extends Equatable {
   final bool? isEmailVerificationSuccess;
   final String? emailVerificationFailure;
   final bool? isEmailVerificationLoading;
+  final bool? changePasswordVisibility;
   const EmailAuthState({
+    this.changePasswordVisibility = false,
     this.isEmailVerificationLoading = false,
     this.isCreateNewUserUsingEmailLoading = false,
     this.isLoginUsingEmailLoading = false,
@@ -55,9 +57,11 @@ class EmailAuthState extends Equatable {
         isEmailVerified,
         isEmailVerificationSuccess,
         emailVerificationFailure,
+        changePasswordVisibility,
       ];
 
   EmailAuthState copyWith({
+    bool? changePasswordVisibility,
     bool? isEmailVerificationLoading,
     bool? isEmailVerified,
     bool? isEmailVerificationSuccess,
@@ -76,6 +80,8 @@ class EmailAuthState extends Equatable {
     String? emailVerificationFailure,
   }) {
     return EmailAuthState(
+      changePasswordVisibility:
+          changePasswordVisibility ?? this.changePasswordVisibility,
       isEmailVerificationLoading:
           isEmailVerificationLoading ?? this.isEmailVerificationLoading,
       emailVerificationFailure:

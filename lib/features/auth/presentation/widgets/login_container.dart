@@ -73,17 +73,32 @@ class LoginContainer extends StatelessWidget {
                       CustomDivider(style: AppStyles.styleExtraBold16),
                       const SizedBox(height: 40),
                       EmailAndPasswordLoginFormFields(
-                          onPasswordFieldSubmitted: (value) {
-                            if (formKey.currentState!.validate()) {
-                              BlocProvider.of<EmailAuthCubit>(context)
-                                  .loginUsingMail(
-                                      email: email.text.trim(),
-                                      password: password.text);
-                            }
-                            password.clear();
+                        suffixIcon: CustomIconButton(
+                          onPressed: () {
+                            BlocProvider.of<EmailAuthCubit>(context)
+                                .changePasswordVisibility();
                           },
-                          email: email,
-                          password: password),
+                          icon: Icon(
+                            BlocProvider.of<EmailAuthCubit>(context).suffix,
+                            color: AppColor.whiteColor,
+                          ),
+                        ),
+                        onPasswordFieldSubmitted: (value) {
+                          if (formKey.currentState!.validate()) {
+                            BlocProvider.of<EmailAuthCubit>(context)
+                                .loginUsingMail(
+                              email: email.text.trim(),
+                              password: password.text,
+                            );
+                          }
+
+                          password.clear();
+                        },
+                        email: email,
+                        password: password,
+                        isPassword:
+                            BlocProvider.of<EmailAuthCubit>(context).isPassword,
+                      ),
                       ForgetPasswordTextButton(
                         pressToNavigateToForgetPasswordScreen: () {
                           Navigator.pushNamed(context, forgetPasswordScreen);
