@@ -7,11 +7,13 @@ import 'package:smile_chat/features/error/screens/modern_error_screen.dart';
 import 'package:smile_chat/features/landing/presentation/screens/landing_sscreen.dart';
 import 'package:smile_chat/firebase_options.dart';
 import 'package:smile_chat/my_observer.dart';
+import 'package:smile_chat/services/depnedancy_injectaion.dart';
 
 Future<void> main() async {
   ErrorWidget.builder =
       (FlutterErrorDetails details) => ModernErrorScreen(errorDetails: details);
   WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
   Bloc.observer = MyBlocObserver();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

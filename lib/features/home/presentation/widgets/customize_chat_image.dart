@@ -15,10 +15,38 @@ class CustomizeChatImage extends StatelessWidget {
     return CircleAvatar(
       radius: 30,
       backgroundColor: AppColor.primaryColor,
-      child: Image.asset(
-        model.image!,
-        fit: BoxFit.contain,
-      ),
+      child: buildChatImage(model.image),
     );
+  }
+
+  Widget buildChatImage(String? image) {
+    if (image == null || image.isEmpty) {
+      return const Icon(Icons.person);
+    }
+    if (image.startsWith('http')) {
+      return ClipOval(
+        child: Image.network(
+          image,
+          fit: BoxFit.cover,
+          width: 60,
+          height: 60,
+          errorBuilder: (context, error, stackTrace) {
+            return const Icon(Icons.person);
+          },
+        ),
+      );
+    } else {
+      return ClipOval(
+        child: Image.asset(
+          image,
+          fit: BoxFit.cover,
+          width: 60,
+          height: 60,
+          errorBuilder: (context, error, stackTrace) {
+            return const Icon(Icons.person);
+          },
+        ),
+      );
+    }
   }
 }

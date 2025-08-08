@@ -61,30 +61,28 @@ class RegisterContainer extends StatelessWidget {
                       ),
                       const SizedBox(height: 50),
                       CreateAnAccountAndAlreadyAUserTextButton(
-                        pressToNaviagateToLoginScreen: () =>
-                            Navigator.of(context)
-                                .pushReplacementNamed(loginUsingEmail),
-                        customTextButtonText: 'Sign in',
-                        customTextwidgetText: 'Already a user ?',
-                        text: state.isCreateNewUserUsingEmailLoading == true
-                            ? 'Creating...'
-                            : 'Create an account',
-                        onPressedRegisterButton:
-                            state.isCreateNewUserUsingEmailLoading == true
-                                ? null // Disable button during loading
-                                : () {
-                                    if (formkey.currentState!.validate()) {
-                                      BlocProvider.of<EmailAuthCubit>(context)
-                                          .createNewUser(
-                                        userName.text.trim(),
-                                        email.text.trim(),
-                                        password.text.trim(),
-                                        confirmPassword.text.trim(),
-                                      );
-                                    }
-                                    // formkey.currentState!.reset();
-                                  },
-                      ),
+                          pressToNaviagateToLoginScreen: () =>
+                              Navigator.of(context)
+                                  .pushReplacementNamed(loginUsingEmail),
+                          customTextButtonText: 'Sign in',
+                          customTextwidgetText: 'Already a user ?',
+                          text: state.isCreateNewUserUsingEmailLoading == true
+                              ? 'Creating...'
+                              : 'Create an account',
+                          onPressedRegisterButton:
+                              state.isCreateNewUserUsingEmailLoading == true
+                                  ? null // Disable button during loading
+                                  : () {
+                                      if (formkey.currentState!.validate()) {
+                                        BlocProvider.of<EmailAuthCubit>(context)
+                                            .createNewUser(
+                                          userName.text.trim(),
+                                          email.text.trim(),
+                                          password.text.trim(),
+                                          confirmPassword.text.trim(),
+                                        );
+                                      }
+                                    }),
                       if (state.isCreateNewUserUsingEmailLoading == true)
                         const CustomCircleProgressIndicator(),
                     ],

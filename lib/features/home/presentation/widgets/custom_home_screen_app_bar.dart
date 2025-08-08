@@ -20,7 +20,7 @@ class CustomHomeScreenAppBar extends StatelessWidget {
         LandingIconInTheHomePageAppBar(onPressed: onPressed),
         const Spacer(),
         Text(
-          'Home',
+          'Welcome',
           style: AppStyles.styleMedium20.copyWith(color: AppColor.whiteColor),
         ),
         const Spacer(flex: 18),

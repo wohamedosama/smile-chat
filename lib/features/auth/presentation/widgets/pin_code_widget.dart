@@ -24,13 +24,6 @@ class PinCodeWidget extends StatelessWidget {
         pastedTextStyle: AppStyles.styleMediumWithMidGrayColor16,
         onCompleted: (value) => print('Completed'),
         onChanged: (value) => print(value),
-        // validator: (value) {
-        //   if (value!.length < 4) {
-        //     return "Please enter 4 digits OTP";
-        //   } else {
-        //     return null;
-        //   }
-        // },
         pinTheme: PinTheme(
           activeColor: AppColor.whiteColor,
           inactiveColor: AppColor.lightBlueColor,

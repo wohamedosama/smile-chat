@@ -5,11 +5,12 @@ import 'package:intl/intl.dart';
 import 'package:smile_chat/features/chats/presentation/widget/chat_app_bar.dart';
 import 'package:smile_chat/features/chats/presentation/widget/chat_bubble_item.dart';
 import 'package:smile_chat/features/chats/presentation/widget/custom_message_bar.dart';
+import 'package:smile_chat/features/home/model/chat_model.dart';
 import 'package:smile_chat/utils/app_color.dart';
 
 class ChatsScreen extends StatelessWidget {
-  const ChatsScreen({super.key});
-
+  const ChatsScreen({super.key, required this.chatModel});
+  final ChatModel chatModel;
   @override
   Widget build(BuildContext context) {
     var now = DateTime.now();

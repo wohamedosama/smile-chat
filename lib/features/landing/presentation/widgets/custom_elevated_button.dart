@@ -9,15 +9,20 @@ class CustomElevatedButton extends StatelessWidget {
     required this.text,
     this.backgroundColor = AppColor.lightBlueColor,
     this.textStyle,
+    this.isDisabled = false,
+    this.onLongPress,
   });
   final void Function()? onPressed;
   final Color? backgroundColor;
   final TextStyle? textStyle;
   final String text;
+  final bool isDisabled;
+  final void Function()? onLongPress;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onLongPress: onLongPress,
+      onPressed: (isDisabled) ? null : onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(

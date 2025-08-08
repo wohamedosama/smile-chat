@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 const String loginUsingMobileNumber = '/loginUsingMobileNumber';
 const String loginUsingEmail = '/loginUsingEmail';
 const String getOTPScreen = '/getOTPScreen';
@@ -10,3 +12,6 @@ const String chatsScreen = '/chatsScreen';
 const String forgetPasswordScreen = '/forgetPasswordScreen';
 const String landingScreen = '/';
 const String storiesCollection = 'stories';
+const String chatCollections = 'chats';
+const String contactsCollection = 'contacts';
+final userId = FirebaseAuth.instance.currentUser?.uid;

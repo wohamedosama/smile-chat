@@ -31,7 +31,9 @@ class ChatItem extends StatelessWidget {
         ],
       ),
       child: ListTile(
-        leading: CustomizeChatImage(model: model),
+        leading: CustomizeChatImage(
+          model: model,
+        ),
         title: Text(
           model.name,
           style: AppStyles.styleMedium20,
@@ -44,7 +46,8 @@ class ChatItem extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        trailing: UnreadMessagesAndTimeOfTheChat(model: model),
+        trailing: SizedBox(
+            width: 80, child: UnreadMessagesAndTimeOfTheChat(model: model)),
       ),
     );
   }

@@ -5,20 +5,26 @@ class SearchTextFromField extends StatelessWidget {
   const SearchTextFromField({
     this.onTapRemoveIcon,
     this.onTapSearchIcon,
+    required this.controller,
+    this.onChanged,
     super.key,
   });
   final void Function()? onTapSearchIcon;
   final void Function()? onTapRemoveIcon;
+  final void Function(String)? onChanged;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      onChanged: onChanged!,
       cursorColor: const Color(0xff24786D),
       decoration: InputDecoration(
         suffixIcon: GestureDetector(
-            onTap: onTapSearchIcon,
+            onTap: onTapRemoveIcon,
             child: Image.asset(Assets.assetsImagesRemoveIcon)),
         prefixIcon: GestureDetector(
-            onTap: onTapRemoveIcon,
+            onTap: onTapSearchIcon,
             child: Image.asset(Assets.assetsImagesSearchIcon)),
         filled: true,
         fillColor: const Color(0xffF3F6F6),
