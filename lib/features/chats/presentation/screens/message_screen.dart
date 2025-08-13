@@ -8,14 +8,14 @@ import 'package:smile_chat/features/chats/presentation/widget/custom_message_bar
 import 'package:smile_chat/features/home/model/chat_model.dart';
 import 'package:smile_chat/utils/app_color.dart';
 
-class ChatsScreen extends StatelessWidget {
-  const ChatsScreen({super.key, required this.chatModel});
+class MessagesScreen extends StatelessWidget {
+  const MessagesScreen({super.key, required this.chatModel});
   final ChatModel chatModel;
+
   @override
   Widget build(BuildContext context) {
     var now = DateTime.now();
     var formatter = DateFormat('hh:mm a');
-
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
       body: SafeArea(
@@ -24,7 +24,7 @@ class ChatsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const ChatsAppBar(),
+              ChatsAppBar(chatModel: chatModel),
               const SizedBox(height: 60),
               DateChip(
                 date: DateTime(now.year, now.month, now.day - 1),
@@ -32,8 +32,8 @@ class ChatsScreen extends StatelessWidget {
               Expanded(
                 child: ListView.builder(
                   itemCount: 30,
-                  itemBuilder: (context, index) =>
-                      ChatBubbleItem(now: now, formatter: formatter),
+                  itemBuilder: (context, index) => ChatBubbleItem(
+                      now: now, formatter: formatter, chatModel: chatModel),
                 ),
               ),
               CustomMessageBar(

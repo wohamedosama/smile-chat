@@ -9,10 +9,12 @@ class ReceiverItem extends StatelessWidget {
     super.key,
     required this.now,
     required this.formatter,
+    // this.chatImage,
   });
 
   final DateTime now;
   final DateFormat formatter;
+  //final String? chatImage;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,17 @@ class ReceiverItem extends StatelessWidget {
                   textStyle: AppStyles.styleSemiBold14
                       .copyWith(color: AppColor.blackColor),
                 ),
+                // if (chatImage != null && chatImage!.isNotEmpty)
+                //   Container(
+                //     margin: const EdgeInsets.only(left: 12, top: 8),
+                //     child: CircleAvatar(
+                //       radius: 16,
+                //       backgroundImage: NetworkImage(chatImage!),
+                //       onBackgroundImageError: (exception, stackTrace) {
+                //         // Handle image loading error
+                //       },
+                //     ),
+                //   ),
                 Container(
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(6)),

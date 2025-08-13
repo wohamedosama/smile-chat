@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_circle_progress_indicator.dart';
-import 'package:smile_chat/features/chats/cubit/chat_cubit.dart';
+import 'package:smile_chat/features/chats/cubit/chat_cubit/chat_cubit.dart';
 import 'package:smile_chat/features/home/presentation/widgets/all_chat_empty_widget.dart';
 import 'package:smile_chat/features/home/presentation/widgets/chat_item.dart';
 import 'package:smile_chat/features/home/presentation/widgets/customize_meterial_indicator_widget.dart';
@@ -66,7 +66,8 @@ class ChatItemContainer extends StatelessWidget {
                               return GestureDetector(
                                 onTap: () {
                                   Navigator.of(context, rootNavigator: true)
-                                      .pushNamed(chatsScreen, arguments: chat);
+                                      .pushNamed(messageScreen,
+                                          arguments: chat);
                                 },
                                 child: ChatItem(model: chat),
                               );

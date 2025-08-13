@@ -9,8 +9,9 @@ class SenderItem extends StatelessWidget {
     super.key,
     required this.now,
     required this.formatter,
+    //this.chatImage,
   });
-
+  // final String? chatImage;
   final DateTime now;
   final DateFormat formatter;
 
@@ -27,6 +28,17 @@ class SenderItem extends StatelessWidget {
           textStyle:
               AppStyles.styleSemiBold14.copyWith(color: AppColor.whiteColor),
         ),
+        // if (chatImage != null && chatImage!.isNotEmpty)
+        //   Container(
+        //     margin: const EdgeInsets.only(right: 20, top: 8),
+        //     child: CircleAvatar(
+        //       radius: 16,
+        //       backgroundImage: NetworkImage(chatImage!),
+        //       onBackgroundImageError: (exception, stackTrace) {
+        //         // Handle image loading error
+        //       },
+        //     ),
+        //   ),
         Container(
           padding: const EdgeInsets.only(right: 20),
           decoration: const BoxDecoration(

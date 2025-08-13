@@ -10,10 +10,12 @@ class CustomMessageBar extends StatelessWidget {
     required this.messageController,
     required this.onSend,
     this.isTyping = false,
+    this.chatImage,
   });
   final TextEditingController messageController;
   final VoidCallback onSend;
   final bool isTyping;
+  final String? chatImage;
 
   @override
   Widget build(BuildContext context) {

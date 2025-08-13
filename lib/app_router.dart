@@ -6,8 +6,9 @@ import 'package:smile_chat/features/auth/presentation/screens/get_otp_screen.dar
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mail_id_screen.dart';
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mobile_number.dart';
 import 'package:smile_chat/features/auth/presentation/screens/register_screen.dart';
-import 'package:smile_chat/features/chats/cubit/chat_cubit.dart';
-import 'package:smile_chat/features/chats/presentation/screens/chats_screen.dart';
+import 'package:smile_chat/features/chats/cubit/chat_cubit/chat_cubit.dart';
+import 'package:smile_chat/features/chats/cubit/message_cubit/message_cubit.dart';
+import 'package:smile_chat/features/chats/presentation/screens/message_screen.dart';
 import 'package:smile_chat/features/home/cubit/search_cubit/search_cubit.dart';
 import 'package:smile_chat/features/home/model/chat_model.dart';
 import 'package:smile_chat/features/home/presentation/screens/home_screen.dart';
@@ -73,10 +74,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case storyViewedScreen:
         return MaterialPageRoute(builder: (_) => StoryViewScreen());
-      case chatsScreen:
-        final chat = settings.arguments as ChatModel;
+      case messageScreen:
+        final chatModel = settings.arguments as ChatModel?;
+
         return MaterialPageRoute(
-          builder: (_) => ChatsScreen(chatModel: chat),
+          builder: (_) => BlocProvider.value(
+            value: getIt<MessageCubit>(),
+            child: MessagesScreen(chatModel: chatModel!),
+          ),
         );
 
       default:

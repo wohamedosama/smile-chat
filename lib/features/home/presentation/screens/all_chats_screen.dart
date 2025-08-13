@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smile_chat/features/chats/cubit/chat_cubit.dart';
+import 'package:smile_chat/features/chats/cubit/chat_cubit/chat_cubit.dart';
 import 'package:smile_chat/features/home/presentation/widgets/chat_item_container.dart';
 import 'package:smile_chat/features/home/presentation/widgets/custom_home_screen_app_bar.dart';
 import 'package:smile_chat/utils/app_color.dart';
@@ -21,7 +21,7 @@ class _AllChatsScreenState extends State<AllChatsScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (userId != null) {
+      if (usecrId != null) {
         BlocProvider.of<ChatCubit>(context).loadAllChats(userId);
       } else {
         print('⚠️ No user logged in, cannot load chats');
