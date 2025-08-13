@@ -9,9 +9,9 @@ class SenderItem extends StatelessWidget {
     super.key,
     required this.now,
     required this.formatter,
-    //this.chatImage,
+    required this.senderText,
   });
-  // final String? chatImage;
+  final String senderText;
   final DateTime now;
   final DateFormat formatter;
 
@@ -22,7 +22,7 @@ class SenderItem extends StatelessWidget {
       children: [
         BubbleSpecialTwo(
           sent: true,
-          text: 'Hello! Kathryn Murphy',
+          text: senderText,
           color: AppColor.greenColor,
           tail: false,
           textStyle:

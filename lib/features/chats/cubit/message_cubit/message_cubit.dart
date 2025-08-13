@@ -53,14 +53,15 @@ class MessageCubit extends Cubit<MessageState> {
         ...state.allMessages
       ];
       emit(state.copyWith(
+        isLoading: false,
         allMessages: updatedMessages,
         isSending: false,
-        errorMessage: '',
       ));
       print("Message added successfully with ID: ${query.id}");
     } catch (error) {
       print("Failed to send message: ${error.toString()}");
       emit(state.copyWith(
+        isLoading: false,
         isSending: false,
         errorMessage: error.toString(),
       ));

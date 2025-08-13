@@ -21,7 +21,7 @@ class _AllChatsScreenState extends State<AllChatsScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (usecrId != null) {
+      if (userId != null) {
         BlocProvider.of<ChatCubit>(context).loadAllChats(userId);
       } else {
         print('⚠️ No user logged in, cannot load chats');

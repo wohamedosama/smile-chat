@@ -9,12 +9,12 @@ class ReceiverItem extends StatelessWidget {
     super.key,
     required this.now,
     required this.formatter,
-    // this.chatImage,
+    required this.receiverText,
   });
 
   final DateTime now;
   final DateFormat formatter;
-  //final String? chatImage;
+  final String receiverText;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,7 @@ class ReceiverItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 BubbleSpecialTwo(
-                  text:
-                      'Hello ! Nazrul How are mohmaed ? Hello ! Nazrul How are mohmaed ?',
+                  text: receiverText,
                   isSender: false,
                   color: const Color(0xffF2F7FB),
                   tail: false,
