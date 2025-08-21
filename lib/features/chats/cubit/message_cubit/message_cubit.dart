@@ -12,14 +12,18 @@ class MessageCubit extends Cubit<MessageState> {
   MessageCubit() : super(const MessageState());
   final fireStore = FirebaseFirestore.instance;
 
-  Future<void> laodAllMessages(String? userId) async {
+  String generateChatId(String userId1, String userId2) {
+    final List<String> users = [userId1, userId2]..sort();
+    return users.join('_');
+  }
+
+  Future<void> laodAllMessages(String? chatId) async {
     try {
-      emit(state.copyWith(
-        isLoading: true,
-      ));
+      emit(state.copyWith(isLoading: true));
+      print("🔍 Loading messages for chatId: $chatId");
       final query = await fireStore
           .collection(messagesCollection)
-          .where('orderId', isEqualTo: userId)
+          .where('chatId', isEqualTo: chatId)
           .orderBy('messageTime', descending: true)
           .get();
 
@@ -29,37 +33,50 @@ class MessageCubit extends Cubit<MessageState> {
         allMessages: allMessages,
         isLoading: false,
       ));
-      print("Successfully loaded ${allMessages.length} messages");
-    } catch (error) {
       print(
-          "There is a problem while you loading all messages ${error.toString()}");
+          "✅ Successfully loaded ${allMessages.length} messages for chatId: $chatId");
+    } catch (error) {
+      print("❌ Error loading messages for chatId $chatId: ${error.toString()}");
       emit(state.copyWith(isLoading: false, errorMessage: error.toString()));
     }
   }
 
-  Future<void> addMessage(String? userId, MessageModel model) async {
-    try {
-      emit(state.copyWith(
-        isLoading: true,
-        isSending: true,
-      ));
+  Future<void> loadMessagesBetweenUsers(
+      String currentUserId, String otherUserId) async {
+    final chatId = generateChatId(currentUserId, otherUserId);
+    await laodAllMessages(chatId);
+  }
 
-      final Map<String, dynamic> messageData = model.toJson();
-      final query =
-          await fireStore.collection(messagesCollection).add(messageData);
-      final MessageModel updatedMessage = model.copyWith(id: query.id);
+  Future<void> addMessage(
+      String currentUserId, String otherUserId, MessageModel model) async {
+    try {
+      emit(state.copyWith(isLoading: true, isSending: true));
+
+      final chatId = generateChatId(currentUserId, otherUserId);
+      print("📤 Adding message to chatId: $chatId");
+
+      final docRef = fireStore.collection(messagesCollection).doc();
+      final uniqueId = docRef.id;
+      final messageWithId = model.copyWith(id: uniqueId, chatId: chatId);
+      final Map<String, dynamic> messageData = messageWithId.toJson();
+
+      await docRef.set(messageData);
+
       final List<MessageModel> updatedMessages = [
-        updatedMessage,
+        messageWithId,
         ...state.allMessages
       ];
+
       emit(state.copyWith(
         isLoading: false,
         allMessages: updatedMessages,
         isSending: false,
       ));
-      print("Message added successfully with ID: ${query.id}");
+
+      print(
+          "✅ Message added successfully with ID: $uniqueId to chatId: $chatId");
     } catch (error) {
-      print("Failed to send message: ${error.toString()}");
+      print("❌ Failed to send message: ${error.toString()}");
       emit(state.copyWith(
         isLoading: false,
         isSending: false,
@@ -68,14 +85,21 @@ class MessageCubit extends Cubit<MessageState> {
     }
   }
 
-  Future<void> deleteAllMessages(String? userId) async {
+  Future<void> deleteAllMessages(
+      String currentUserId, String otherUserId) async {
     try {
       emit(state.copyWith(isLoading: true));
+      final chatId = generateChatId(currentUserId, otherUserId);
+
+      print("🗑️ Deleting all messages for chatId: $chatId");
+
       final query = await fireStore
           .collection(messagesCollection)
-          .where('userId', isEqualTo: userId)
+          .where('chatId', isEqualTo: chatId)
           .get();
+
       if (query.docs.isEmpty) {
+        print("ℹ️ No messages found to delete for chatId: $chatId");
         emit(state.copyWith(
           isLoading: false,
           errorMessage: "No messages found to delete",
@@ -91,10 +115,15 @@ class MessageCubit extends Cubit<MessageState> {
         allMessages: [],
         isLoading: false,
       ));
-      print("Successfully deleted ${query.docs.length} messages");
+
+      print(
+          "✅ Successfully deleted ${query.docs.length} messages for chatId: $chatId");
     } catch (error) {
-      print("Failed to delete messages: ${error.toString()}");
-      emit(state.copyWith(errorMessage: error.toString()));
+      print("❌ Failed to delete messages: ${error.toString()}");
+      emit(state.copyWith(
+        isLoading: false,
+        errorMessage: error.toString(),
+      ));
     }
   }
 }

@@ -11,11 +11,13 @@ class CustomMessageBar extends StatelessWidget {
     required this.onSend,
     this.isTyping = false,
     this.chatImage,
+    this.onSubmitted,
   });
   final TextEditingController messageController;
   final VoidCallback onSend;
   final bool isTyping;
   final String? chatImage;
+  final void Function(String)? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class CustomMessageBar extends StatelessWidget {
                 children: [
                   Expanded(
                     child: TextField(
+                      onSubmitted: onSubmitted,
                       onTap: () {},
                       controller: messageController,
                       decoration: InputDecoration(
@@ -50,6 +53,7 @@ class CustomMessageBar extends StatelessWidget {
                       ),
                     ),
                   ),
+                  // access to open your files and attach from it to send it to the user
                   IconButton(
                     icon: SvgPicture.asset(Assets.assetsImagesFiles),
                     onPressed: () {},
@@ -59,6 +63,7 @@ class CustomMessageBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 6),
+          // toggle between the send button or camera and record button depend on text filed state
           isTyping
               ? GestureDetector(
                   onTap: onSend,

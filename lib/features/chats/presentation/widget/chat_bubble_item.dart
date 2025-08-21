@@ -8,10 +8,11 @@ class ChatBubbleItem extends StatelessWidget {
     super.key,
     required this.now,
     required this.formatter,
+    required this.isCurrentUser,
     required this.receiverText,
     required this.senderText,
   });
-
+  final bool isCurrentUser;
   final DateTime now;
   final DateFormat formatter;
   final String receiverText;
@@ -19,19 +20,16 @@ class ChatBubbleItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SenderItem(
-          now: now,
-          formatter: formatter,
-          senderText: senderText,
-        ),
-        ReceiverItem(
-          now: now,
-          formatter: formatter,
-          receiverText: receiverText,
-        ),
-      ],
-    );
+    return isCurrentUser
+        ? SenderItem(
+            now: now,
+            formatter: formatter,
+            senderText: senderText,
+          )
+        : ReceiverItem(
+            now: now,
+            formatter: formatter,
+            receiverText: receiverText,
+          );
   }
 }

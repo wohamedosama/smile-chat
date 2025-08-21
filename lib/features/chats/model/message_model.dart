@@ -10,8 +10,12 @@ class MessageModel extends Equatable {
   final String image;
   final String name;
   final bool? isOnline;
+  final String userId;
+  final String chatId;
   const MessageModel({
+    required this.userId,
     required this.id,
+    required this.chatId,
     required this.message,
     required this.createdAt,
     required this.messageTime,
@@ -23,7 +27,9 @@ class MessageModel extends Equatable {
   factory MessageModel.fromJson(DocumentSnapshot doc) {
     final json = doc.data() as Map<String, dynamic>;
     return MessageModel(
+      userId: json['userId'] ?? '',
       id: json['id'] ?? doc.id,
+      chatId: json['chatId'] ?? '',
       message: json['message'],
       createdAt: json['createdAt'] ?? Timestamp.now(),
       messageTime: json['messageTime'],
@@ -36,6 +42,8 @@ class MessageModel extends Equatable {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
+      'chatId': chatId,
+      'userId': userId,
       'message': message,
       'createdAt': createdAt,
       'messageTime': messageTime,
@@ -46,7 +54,9 @@ class MessageModel extends Equatable {
   }
 
   MessageModel copyWith({
+    String? userId,
     String? id,
+    String? chatId,
     String? message,
     Timestamp? createdAt,
     Timestamp? messageTime,
@@ -55,6 +65,8 @@ class MessageModel extends Equatable {
     bool? isOnline,
   }) {
     return MessageModel(
+      chatId: chatId ?? this.chatId,
+      userId: userId ?? this.userId,
       id: id ?? this.id,
       message: message ?? this.message,
       createdAt: createdAt ?? this.createdAt,
@@ -68,10 +80,12 @@ class MessageModel extends Equatable {
   @override
   List<Object?> get props => [
         message,
+        chatId,
         createdAt,
         messageTime,
         image,
         name,
+        userId,
         id,
         isOnline,
       ];
