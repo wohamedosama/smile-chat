@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smile_chat/features/chats/cubit/chat_cubit/chat_cubit.dart';
@@ -22,7 +21,8 @@ class _AllChatsScreenState extends State<AllChatsScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (userId != null) {
-        BlocProvider.of<ChatCubit>(context).loadAllChats(userId);
+        BlocProvider.of<ChatCubit>(context)
+            .loadAllChats('mohamedmedo9932@gmail.com');
       } else {
         print('⚠️ No user logged in, cannot load chats');
       }

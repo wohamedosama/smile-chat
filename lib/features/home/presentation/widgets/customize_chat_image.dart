@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smile_chat/features/home/model/chat_model.dart';
+import 'package:smile_chat/features/chats/model/chat_model.dart';
 import 'package:smile_chat/utils/app_color.dart';
 
 class CustomizeChatImage extends StatelessWidget {
@@ -15,7 +15,9 @@ class CustomizeChatImage extends StatelessWidget {
     return CircleAvatar(
       radius: 30,
       backgroundColor: AppColor.primaryColor,
-      child: buildChatImage(model.image),
+      child: buildChatImage(
+        model.image,
+      ),
     );
   }
 

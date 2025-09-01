@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:smile_chat/features/home/model/chat_model.dart';
+import 'package:smile_chat/features/chats/model/chat_model.dart';
 import 'package:smile_chat/utils/app_images.dart';
 
 var date = DateTime.now();
@@ -7,31 +7,35 @@ final now = Timestamp.fromDate(date);
 
 List<ChatModel> model = [
   ChatModel(
-    id: '1',
+    chatId: '1',
     name: 'Theresa Webb',
     lastMessage:
-        'How are you today? I will go the work at 3 Pm Fuck to mid shoft I miss 5 Shift',
+        'How are you today? I will go the work at 3 Pm Fuck to mchatId shoft I miss 5 Shift',
     lastMessageTime: now,
     image: Assets.assetsImagesPerson3,
     unReadMessagsCount: 2,
+    participants: List.empty(),
   ),
   ChatModel(
-    id: '2',
+    chatId: '2',
+    participants: List.empty(),
     name: 'Kathryn Murphy',
     lastMessage: 'Hey! Can you join the meeting?',
     lastMessageTime: now,
     image: Assets.assetsImagesPerson2,
   ),
   ChatModel(
-    id: '3',
+    chatId: '3',
     name: 'Arlene McCoy',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
     image: Assets.assetsImagesPerson5,
     unReadMessagsCount: 2,
+    participants: List.empty(),
   ),
   ChatModel(
-    id: '4',
+    participants: List.empty(),
+    chatId: '4',
     name: 'Jerome Bell',
     lastMessage: 'Have a good day 🌸',
     lastMessageTime: now,
@@ -39,7 +43,8 @@ List<ChatModel> model = [
     unReadMessagsCount: 9,
   ),
   ChatModel(
-    id: '1',
+    participants: List.empty(),
+    chatId: '1',
     name: 'Theresa Webb',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
@@ -47,14 +52,16 @@ List<ChatModel> model = [
     unReadMessagsCount: 2,
   ),
   ChatModel(
-    id: '2',
+    participants: List.empty(),
+    chatId: '2',
     name: 'Kathryn Murphy',
     lastMessage: 'Hey! Can you join the meeting?',
     lastMessageTime: now,
     image: Assets.assetsImagesPerson2,
   ),
   ChatModel(
-    id: '3',
+    participants: List.empty(),
+    chatId: '3',
     name: 'Arlene McCoy',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
@@ -62,7 +69,8 @@ List<ChatModel> model = [
     unReadMessagsCount: 2,
   ),
   ChatModel(
-    id: '4',
+    participants: List.empty(),
+    chatId: '4',
     name: 'Jerome Bell',
     lastMessage: 'Have a good day 🌸',
     lastMessageTime: now,
@@ -70,7 +78,8 @@ List<ChatModel> model = [
     unReadMessagsCount: 9,
   ),
   ChatModel(
-    id: '1',
+    participants: List.empty(),
+    chatId: '1',
     name: 'Theresa Webb',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
@@ -78,14 +87,16 @@ List<ChatModel> model = [
     unReadMessagsCount: 2,
   ),
   ChatModel(
-    id: '2',
+    participants: List.empty(),
+    chatId: '2',
     name: 'Kathryn Murphy',
     lastMessage: 'Hey! Can you join the meeting?',
     lastMessageTime: now,
     image: Assets.assetsImagesPerson2,
   ),
   ChatModel(
-    id: '3',
+    participants: List.empty(),
+    chatId: '3',
     name: 'Arlene McCoy',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
@@ -93,7 +104,8 @@ List<ChatModel> model = [
     unReadMessagsCount: 2,
   ),
   ChatModel(
-    id: '4',
+    participants: List.empty(),
+    chatId: '4',
     name: 'Jerome Bell',
     lastMessage: 'Have a good day 🌸',
     lastMessageTime: now,
@@ -101,7 +113,8 @@ List<ChatModel> model = [
     unReadMessagsCount: 9,
   ),
   ChatModel(
-    id: '1',
+    chatId: '1',
+    participants: List.empty(),
     name: 'Theresa Webb',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
@@ -109,14 +122,16 @@ List<ChatModel> model = [
     unReadMessagsCount: 2,
   ),
   ChatModel(
-    id: '2',
+    chatId: '2',
+    participants: List.empty(),
     name: 'Kathryn Murphy',
     lastMessage: 'Hey! Can you join the meeting?',
     lastMessageTime: now,
     image: Assets.assetsImagesPerson2,
   ),
   ChatModel(
-    id: '3',
+    participants: List.empty(),
+    chatId: '3',
     name: 'Arlene McCoy',
     lastMessage: 'How are you today?',
     lastMessageTime: now,
@@ -124,7 +139,8 @@ List<ChatModel> model = [
     unReadMessagsCount: 2,
   ),
   ChatModel(
-    id: '4',
+    chatId: '4',
+    participants: List.empty(),
     name: 'Jerome Bell',
     lastMessage: 'Have a good day 🌸',
     lastMessageTime: now,

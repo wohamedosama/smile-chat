@@ -7,10 +7,9 @@ import 'package:smile_chat/features/auth/presentation/screens/login_using_mail_i
 import 'package:smile_chat/features/auth/presentation/screens/login_using_mobile_number.dart';
 import 'package:smile_chat/features/auth/presentation/screens/register_screen.dart';
 import 'package:smile_chat/features/chats/cubit/chat_cubit/chat_cubit.dart';
-import 'package:smile_chat/features/chats/cubit/message_cubit/message_cubit.dart';
+import 'package:smile_chat/features/chats/model/chat_model.dart';
 import 'package:smile_chat/features/chats/presentation/screens/message_screen.dart';
 import 'package:smile_chat/features/home/cubit/search_cubit/search_cubit.dart';
-import 'package:smile_chat/features/home/model/chat_model.dart';
 import 'package:smile_chat/features/home/presentation/screens/home_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/profile_screen.dart';
 import 'package:smile_chat/features/home/presentation/screens/search_screen.dart';
@@ -78,8 +77,8 @@ class AppRouter {
         final chatModel = settings.arguments as ChatModel?;
 
         return MaterialPageRoute(
-          builder: (_) => BlocProvider.value(
-            value: getIt<MessageCubit>(),
+          builder: (_) => BlocProvider<ChatCubit>.value(
+            value: getIt<ChatCubit>(),
             child: MessagesScreen(chatModel: chatModel!),
           ),
         );

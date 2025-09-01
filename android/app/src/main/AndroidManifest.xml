@@ -1,5 +1,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Internet permission for Firebase and network operations -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Camera permission for image picker -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <!-- Storage permissions for file access -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <!-- Notification permission for Firebase messaging -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- Phone permission for phone authentication -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:label="smile_chat"
         android:name="${applicationName}"

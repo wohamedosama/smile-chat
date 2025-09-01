@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:smile_chat/features/home/model/chat_model.dart';
+import 'package:smile_chat/features/chats/model/chat_model.dart';
 
 part 'search_state.dart';
 

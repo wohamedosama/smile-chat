@@ -20,69 +20,67 @@ class ChatItemContainer extends StatelessWidget {
     final documentStream =
         FirebaseFirestore.instance.collection(chatCollections).snapshots();
     return StreamBuilder<QuerySnapshot>(
-        stream: documentStream,
-        builder: (context, snapshot) {
-          return BlocBuilder<ChatCubit, ChatState>(
-            builder: (context, state) {
-              if (state.isLoading == true) {
-                return const Center(
-                  child:
-                      CustomCircleProgressIndicator(color: AppColor.whiteColor),
-                );
-              }
-              if (state.errorMessage != null &&
-                  state.errorMessage!.isNotEmpty) {
-                return ErrorLoadingChatWidget(
-                  errorMessage: state.errorMessage!,
-                  onPressed: () =>
-                      BlocProvider.of<ChatCubit>(context).loadAllChats(userId),
-                );
-              }
-              if (state.allChats.isEmpty) {
-                return const AllChatEmptyWidget();
-              }
-              return ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(24),
-                    topRight: Radius.circular(24)),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  color: AppColor.whiteColor,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(
-                        child: CustomizeMeterialIndicator(
-                          onRefresh: () async {
-                            BlocProvider.of<ChatCubit>(context)
-                                .loadAllChats(userId);
+      stream: documentStream,
+      builder: (context, snapshot) {
+        return BlocBuilder<ChatCubit, ChatState>(
+          builder: (context, state) {
+            if (state.isLoadingChats == true) {
+              return const Center(
+                child:
+                    CustomCircleProgressIndicator(color: AppColor.whiteColor),
+              );
+            }
+            if (state.errorMessage != null && state.errorMessage!.isNotEmpty) {
+              return ErrorLoadingChatWidget(
+                errorMessage: state.errorMessage!,
+                onPressed: () =>
+                    BlocProvider.of<ChatCubit>(context).loadAllChats(userId!),
+              );
+            }
+            if (state.allChats.isEmpty) {
+              return const AllChatEmptyWidget();
+            }
+            return ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                color: AppColor.whiteColor,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      child: CustomizeMeterialIndicator(
+                        onRefresh: () async {
+                          BlocProvider.of<ChatCubit>(context)
+                              .loadAllChats(userId!);
+                        },
+                        child: ListView.separated(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 10),
+                          itemBuilder: (context, index) {
+                            final chat = state.allChats[index];
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context, rootNavigator: true)
+                                    .pushNamed(messageScreen, arguments: chat);
+                              },
+                              child: ChatItem(model: chat),
+                            );
                           },
-                          child: ListView.separated(
-                            physics: const AlwaysScrollableScrollPhysics(),
-                            separatorBuilder: (context, index) =>
-                                const SizedBox(height: 10),
-                            itemBuilder: (context, index) {
-                              final chat = state.allChats[index];
-                              return GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context, rootNavigator: true)
-                                      .pushNamed(messageScreen,
-                                          arguments: chat);
-                                },
-                                child: ChatItem(model: chat),
-                              );
-                            },
-                            itemCount: state.allChats.length,
-                          ),
+                          itemCount: state.allChats.length,
                         ),
                       ),
-                      const SizedBox(height: 5),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 5),
+                  ],
                 ),
-              );
-            },
-          );
-        });
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

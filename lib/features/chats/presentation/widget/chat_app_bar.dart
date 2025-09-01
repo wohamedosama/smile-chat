@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smile_chat/features/auth/presentation/widgets/custom_svg_image.dart';
-import 'package:smile_chat/features/home/model/chat_model.dart';
+import 'package:smile_chat/features/chats/model/chat_model.dart';
 import 'package:smile_chat/features/home/presentation/widgets/audio_and_video_call_widget.dart';
 import 'package:smile_chat/features/home/presentation/widgets/customize_chat_image.dart';
 import 'package:smile_chat/utils/app_font_size.dart';

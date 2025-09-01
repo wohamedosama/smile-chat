@@ -13,6 +13,7 @@ const String forgetPasswordScreen = '/forgetPasswordScreen';
 const String landingScreen = '/';
 const String storiesCollection = 'stories';
 const String chatCollections = 'chats';
+const String usersCollections = 'users';
 const String contactsCollection = 'contacts';
 const String messagesCollection = 'message';
 final userId = FirebaseAuth.instance.currentUser?.uid;

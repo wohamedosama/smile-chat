@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smile_chat/features/chats/model/chat_model.dart';
 import 'package:smile_chat/features/home/cubit/search_cubit/search_cubit.dart';
-import 'package:smile_chat/features/home/model/chat_model.dart';
 import 'package:smile_chat/features/home/presentation/widgets/empty_search_content.dart';
 import 'package:smile_chat/features/home/presentation/widgets/no_results_found_when_you_search_widget.dart';
 import 'package:smile_chat/features/home/presentation/widgets/search_item.dart';
